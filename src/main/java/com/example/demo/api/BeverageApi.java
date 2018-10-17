@@ -15,7 +15,7 @@ public interface BeverageApi {
 
     @ApiOperation(tags = {"Beverage",}, notes = "", value = "Get All Data of Bverage Table")
     @GetMapping("/")
-    ResponseEntity<List<Beverage>> getAll (@RequestParam String name);
+    ResponseEntity<List<BeverrageDTO>> getAll (@RequestParam String name);
 
     @ApiOperation(tags = {"Beverage",}, value = "update Beverge Table")
     @PutMapping("/{id}")
