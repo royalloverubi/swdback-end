@@ -16,6 +16,7 @@ import java.util.List;
 @RestController
 public class BeverageController implements BeverageApi{
 
+
     @Autowired
     BeverageService beverageService;
 
@@ -43,6 +44,7 @@ public class BeverageController implements BeverageApi{
         Boolean result = beverageService.delete(id);
         return ResponseEntity.ok(result);
     }
+
 
 
 }

@@ -1,8 +1,9 @@
-package com.example.demo.service;
+package com.example.demo.service.impl;
 
 import com.example.demo.api.BeverrageDTO;
 import com.example.demo.persistent.entity.Beverage;
 import com.example.demo.persistent.repository.BeverageRepository;
+import com.example.demo.service.BeverageService;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;

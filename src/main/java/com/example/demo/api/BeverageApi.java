@@ -13,6 +13,7 @@ import java.util.List;
 public interface BeverageApi {
 
 
+
     @ApiOperation(tags = {"Beverage",}, notes = "", value = "Get All Data of Bverage Table")
     @GetMapping("/")
     ResponseEntity<List<BeverrageDTO>> getAll (@RequestParam String name);
@@ -28,4 +29,8 @@ public interface BeverageApi {
     @ApiOperation(tags = {"Beverage",}, value = "Delete Beverage")
     @DeleteMapping("/{id}")
     ResponseEntity<Boolean> delete (@PathVariable Long id);
+
+
+
+
 }
