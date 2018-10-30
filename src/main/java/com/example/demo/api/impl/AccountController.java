@@ -5,6 +5,7 @@ import com.example.demo.service.AccountService;
 import com.example.demo.service.dto.AccountDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -36,7 +37,7 @@ public class AccountController implements AccountApi {
     }
 
     @Override
-    public ResponseEntity<Map<String, Boolean>> delete(Integer id) {
+    public ResponseEntity<Map<String, Boolean>> delete(@PathVariable("id") Integer id) {
         Boolean result = accountService.delete(id);
         Map<String, Boolean> resul = new HashMap<>();
         resul.put("Content", result);
