@@ -20,9 +20,6 @@ public class Proposition {
     @Column(name = "price")
     private Double price;
 
-    @Column(name = "code")
-    private String code;
-
     @Column(name = "is_active")
     private Boolean isActive;
 
@@ -59,14 +56,6 @@ public class Proposition {
 
     public void setPrice(Double price) {
         this.price = price;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
     }
 
     public Boolean getActive() {

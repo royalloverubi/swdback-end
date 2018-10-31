@@ -12,8 +12,6 @@ public class PropositionDTO implements Serializable {
 
     private Double price;
 
-    private String code;
-
     private Boolean isActive;
 
     private Boolean idDeleted;
@@ -48,14 +46,6 @@ public class PropositionDTO implements Serializable {
 
     public void setPrice(Double price) {
         this.price = price;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
     }
 
     public Boolean getActive() {

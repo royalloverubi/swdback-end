@@ -22,6 +22,8 @@ public class ConfigurationDTO implements Serializable {
 
     private String headphone;
 
+    private Double price;
+
     private Boolean isActive;
 
     private Boolean idDeleted;
@@ -96,6 +98,14 @@ public class ConfigurationDTO implements Serializable {
 
     public void setHeadphone(String headphone) {
         this.headphone = headphone;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
     public Boolean getActive() {

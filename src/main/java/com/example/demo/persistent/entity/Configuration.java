@@ -35,6 +35,9 @@ public class Configuration {
     @Column(name = "headphone")
     private String headphone;
 
+    @Column(name = "price")
+    private Double price;
+
     @Column(name = "is_active")
     private Boolean isActive;
 
