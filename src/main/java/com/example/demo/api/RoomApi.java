@@ -9,23 +9,23 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/room")
 public interface RoomApi {
 
-    @ApiOperation(tags = {"Proposition",}, notes = "", value = "Get All Proposition")
+    @ApiOperation(tags = {"Room",}, notes = "", value = "Get All Room")
     @GetMapping("/getAll")
     ResponseEntity<Void> getAll();
 
-    @ApiOperation(tags = {"Proposition",}, notes = "", value = "Create Proposition")
+    @ApiOperation(tags = {"Room",}, notes = "", value = "Create Room")
     @PostMapping("/create")
     ResponseEntity<Void> create();
 
-    @ApiOperation(tags = {"Proposition",}, notes = "", value = "Update Proposition")
+    @ApiOperation(tags = {"Room",}, notes = "", value = "Update Room")
     @PutMapping("/update")
     ResponseEntity<Void> update();
 
-    @ApiOperation(tags = {"Proposition",}, notes = "", value = "Get Proposition By Id")
+    @ApiOperation(tags = {"Room",}, notes = "", value = "Get Room By Id")
     @GetMapping("/getById")
     ResponseEntity<Void> getById();
 
-    @ApiOperation(tags = {"Proposition",}, notes = "", value = "Delete Proposition")
+    @ApiOperation(tags = {"Room",}, notes = "", value = "Delete Room")
     @DeleteMapping("/delete/{id}")
     ResponseEntity<Void> delete(@PathVariable("id") Long id);
 }
