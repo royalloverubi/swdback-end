@@ -7,9 +7,9 @@ public class ServiceRequestDTO implements Serializable {
 
     private Integer id;
 
-    private Integer accountRequestId;
+    private Integer userId;
 
-    private Integer accountApproveId;
+    private Integer cyberGamingId;
 
     private Double duration;
 
@@ -17,23 +17,31 @@ public class ServiceRequestDTO implements Serializable {
 
     private Boolean isDone;
 
-    private LocalDateTime dateRequest;
-
     private Double isPaid;
 
     private LocalDateTime paidDate;
 
-    private LocalDateTime requestDate;
+    private LocalDateTime dateRequest;
+
+    private LocalDateTime goingDate;
 
     private String evaluation;
 
-    private Double star;
+    private Integer star;
 
     private Double longitude;
 
     private Double latitude;
 
     private String code;
+
+    private Double totalPrice;
+
+    private Integer roomId;
+
+    private Integer configurationId;
+
+    private Boolean isApproved;
 
     private Boolean isActive;
 
@@ -47,20 +55,20 @@ public class ServiceRequestDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getAccountRequestId() {
-        return accountRequestId;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setAccountRequestId(Integer accountRequestId) {
-        this.accountRequestId = accountRequestId;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
-    public Integer getAccountApproveId() {
-        return accountApproveId;
+    public Integer getCyberGamingId() {
+        return cyberGamingId;
     }
 
-    public void setAccountApproveId(Integer accountApproveId) {
-        this.accountApproveId = accountApproveId;
+    public void setCyberGamingId(Integer cyberGamingId) {
+        this.cyberGamingId = cyberGamingId;
     }
 
     public Double getDuration() {
@@ -87,14 +95,6 @@ public class ServiceRequestDTO implements Serializable {
         isDone = done;
     }
 
-    public LocalDateTime getDateRequest() {
-        return dateRequest;
-    }
-
-    public void setDateRequest(LocalDateTime dateRequest) {
-        this.dateRequest = dateRequest;
-    }
-
     public Double getIsPaid() {
         return isPaid;
     }
@@ -111,12 +111,20 @@ public class ServiceRequestDTO implements Serializable {
         this.paidDate = paidDate;
     }
 
-    public LocalDateTime getRequestDate() {
-        return requestDate;
+    public LocalDateTime getDateRequest() {
+        return dateRequest;
     }
 
-    public void setRequestDate(LocalDateTime requestDate) {
-        this.requestDate = requestDate;
+    public void setDateRequest(LocalDateTime dateRequest) {
+        this.dateRequest = dateRequest;
+    }
+
+    public LocalDateTime getGoingDate() {
+        return goingDate;
+    }
+
+    public void setGoingDate(LocalDateTime goingDate) {
+        this.goingDate = goingDate;
     }
 
     public String getEvaluation() {
@@ -127,11 +135,11 @@ public class ServiceRequestDTO implements Serializable {
         this.evaluation = evaluation;
     }
 
-    public Double getStar() {
+    public Integer getStar() {
         return star;
     }
 
-    public void setStar(Double star) {
+    public void setStar(Integer star) {
         this.star = star;
     }
 
@@ -157,6 +165,38 @@ public class ServiceRequestDTO implements Serializable {
 
     public void setCode(String code) {
         this.code = code;
+    }
+
+    public Double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(Double totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public Integer getRoomId() {
+        return roomId;
+    }
+
+    public void setRoomId(Integer roomId) {
+        this.roomId = roomId;
+    }
+
+    public Integer getConfigurationId() {
+        return configurationId;
+    }
+
+    public void setConfigurationId(Integer configurationId) {
+        this.configurationId = configurationId;
+    }
+
+    public Boolean getApproved() {
+        return isApproved;
+    }
+
+    public void setApproved(Boolean approved) {
+        isApproved = approved;
     }
 
     public Boolean getActive() {

@@ -17,9 +17,6 @@ public class Account {
     @Column(name = "password")
     private String password;
 
-    @Column(name = "account_type")
-    private String accountType;
-
     @Column(name = "role")
     private String role;
 
@@ -51,14 +48,6 @@ public class Account {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getAccountType() {
-        return accountType;
-    }
-
-    public void setAccountType(String accountType) {
-        this.accountType = accountType;
     }
 
     public String getRole() {

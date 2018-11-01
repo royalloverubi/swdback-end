@@ -10,8 +10,6 @@ public class AccountDTO implements Serializable {
 
     private String password;
 
-    private String accountType;
-
     private String role;
 
     private Boolean isActive;
@@ -40,14 +38,6 @@ public class AccountDTO implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getAccountType() {
-        return accountType;
-    }
-
-    public void setAccountType(String accountType) {
-        this.accountType = accountType;
     }
 
     public String getRole() {

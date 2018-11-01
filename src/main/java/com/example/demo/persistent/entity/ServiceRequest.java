@@ -12,11 +12,11 @@ public class ServiceRequest {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "account_request_id")
-    private Integer accountRequestId;
+    @Column(name = "user_id")
+    private Integer userId;
 
-    @Column(name = "account_approve_id")
-    private Integer accountApproveId;
+    @Column(name = "cyber_gaming_id")
+    private Integer cyberGamingId;
 
     @Column(name = "duration")
     private Double duration;
@@ -27,9 +27,6 @@ public class ServiceRequest {
     @Column(name = "is_done")
     private Boolean isDone;
 
-    @Column(name = "date_request")
-    private LocalDateTime dateRequest;
-
     @Column(name = "is_paid")
     private Double isPaid;
 
@@ -37,13 +34,16 @@ public class ServiceRequest {
     private LocalDateTime paidDate;
 
     @Column(name = "request_date")
-    private LocalDateTime requestDate;
+    private LocalDateTime dateRequest;
+
+    @Column(name = "going_date")
+    private LocalDateTime goingDate;
 
     @Column(name = "evaluation")
     private String evaluation;
 
     @Column(name = "star")
-    private Double star;
+    private Integer star;
 
     @Column(name = "longitude")
     private Double longitude;
@@ -53,6 +53,18 @@ public class ServiceRequest {
 
     @Column(name = "code")
     private String code;
+
+    @Column(name = "total_price")
+    private Double totalPrice;
+
+    @Column(name = "room_id")
+    private Integer roomId;
+
+    @Column(name = "configuration_id")
+    private Integer configurationId;
+
+    @Column(name = "is_approved")
+    private Boolean isApproved;
 
     @Column(name = "is_active")
     private Boolean isActive;
@@ -68,20 +80,20 @@ public class ServiceRequest {
         this.id = id;
     }
 
-    public Integer getAccountRequestId() {
-        return accountRequestId;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setAccountRequestId(Integer accountRequestId) {
-        this.accountRequestId = accountRequestId;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
-    public Integer getAccountApproveId() {
-        return accountApproveId;
+    public Integer getCyberGamingId() {
+        return cyberGamingId;
     }
 
-    public void setAccountApproveId(Integer accountApproveId) {
-        this.accountApproveId = accountApproveId;
+    public void setCyberGamingId(Integer cyberGamingId) {
+        this.cyberGamingId = cyberGamingId;
     }
 
     public Double getDuration() {
@@ -132,12 +144,48 @@ public class ServiceRequest {
         this.paidDate = paidDate;
     }
 
-    public LocalDateTime getRequestDate() {
-        return requestDate;
+    public LocalDateTime getGoingDate() {
+        return goingDate;
     }
 
-    public void setRequestDate(LocalDateTime requestDate) {
-        this.requestDate = requestDate;
+    public void setGoingDate(LocalDateTime goingDate) {
+        this.goingDate = goingDate;
+    }
+
+    public void setStar(Integer star) {
+        this.star = star;
+    }
+
+    public Double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(Double totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public Integer getRoomId() {
+        return roomId;
+    }
+
+    public void setRoomId(Integer roomId) {
+        this.roomId = roomId;
+    }
+
+    public Integer getConfigurationId() {
+        return configurationId;
+    }
+
+    public void setConfigurationId(Integer configurationId) {
+        this.configurationId = configurationId;
+    }
+
+    public Boolean getApproved() {
+        return isApproved;
+    }
+
+    public void setApproved(Boolean approved) {
+        isApproved = approved;
     }
 
     public String getEvaluation() {
@@ -146,14 +194,6 @@ public class ServiceRequest {
 
     public void setEvaluation(String evaluation) {
         this.evaluation = evaluation;
-    }
-
-    public Double getStar() {
-        return star;
-    }
-
-    public void setStar(Double star) {
-        this.star = star;
     }
 
     public Double getLongitude() {
@@ -195,4 +235,10 @@ public class ServiceRequest {
     public void setIdDeleted(Boolean idDeleted) {
         this.idDeleted = idDeleted;
     }
+
+    public Integer getStar() {
+        return star;
+    }
+
+
 }
