@@ -1,8 +1,8 @@
 package com.example.demo.api.impl;
 
-import com.example.demo.api.UserApi;
-import com.example.demo.service.UserService;
-import com.example.demo.service.dto.UserDTO;
+import com.example.demo.api.CustomerApi;
+import com.example.demo.service.CustomerService;
+import com.example.demo.service.dto.CustomerDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,32 +14,32 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-public class UserController implements UserApi {
+public class CustomerController implements CustomerApi {
 
     @Autowired
-    UserService userService;
+    CustomerService customerService;
 
     @Override
-    public ResponseEntity<UserDTO> getByAccountId(@RequestParam("accountId") Integer accountId) {
-        UserDTO userDTO = userService.getByAccountId(accountId);
-        return ResponseEntity.ok(userDTO);
+    public ResponseEntity<CustomerDTO> getByAccountId(@RequestParam("accountId") Integer accountId) {
+        CustomerDTO customerDTO = customerService.getByAccountId(accountId);
+        return ResponseEntity.ok(customerDTO);
     }
 
     @Override
-    public ResponseEntity<UserDTO> update(@RequestBody UserDTO userDTO) {
-        UserDTO dto = userService.update(userDTO);
+    public ResponseEntity<CustomerDTO> update(@RequestBody CustomerDTO customerDTO) {
+        CustomerDTO dto = customerService.update(customerDTO);
         return ResponseEntity.ok(dto);
     }
 
     @Override
-    public ResponseEntity<UserDTO> create(@RequestBody UserDTO userDTO) {
-        UserDTO dto = userService.create(userDTO);
+    public ResponseEntity<CustomerDTO> create(@RequestBody CustomerDTO customerDTO) {
+        CustomerDTO dto = customerService.create(customerDTO);
         return ResponseEntity.ok(dto);
     }
 
     @Override
     public ResponseEntity<Map<String, Boolean>> delete(@PathVariable("id") Integer id) {
-        Boolean result = userService.delete(id);
+        Boolean result = customerService.delete(id);
         Map<String, Boolean> resul = new HashMap<>();
         resul.put("Content", result);
         return ResponseEntity.ok(resul);
