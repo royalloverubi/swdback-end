@@ -26,7 +26,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public CustomerDTO getByAccountId(Integer accountId) {
         Customer customer = customerRepository.getByAccountId(accountId);
-        if(ObjectUtils.isEmpty(accountId)) {
+        if(customer == null) {
             return null;
         }
         ModelMapper modelMapper = new ModelMapper();

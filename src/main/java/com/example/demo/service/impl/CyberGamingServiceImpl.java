@@ -27,7 +27,7 @@ public class CyberGamingServiceImpl implements CyberGamingService {
     @Override
     public CyberGamingDTO getByAccountId(Integer accountId) {
         CyberGaming cyberGaming = cyberGamingRepository.findByAccountId(accountId);
-        if(ObjectUtils.isEmpty(cyberGaming)) {
+        if(cyberGaming == null) {
             return null;
         }
         ModelMapper modelMapper = new ModelMapper();

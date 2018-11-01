@@ -26,7 +26,7 @@ public class CyberGaming {
     @Column(name = "star_average")
     private Double starAverage;
 
-    @Column(name = "logitude")
+    @Column(name = "longitude")
     private Double logitude;
 
     @Column(name = "latitude")
