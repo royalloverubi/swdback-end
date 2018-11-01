@@ -19,6 +19,6 @@ public interface ServiceRequestRepository extends JpaRepository<ServiceRequest, 
     @Modifying
     void deleteByID(@Param("id") Integer id);
 
-    @Query("SELECT s FROM ServiceRequest s WHERE s.accountRequestId = :id")
+    @Query("SELECT s FROM ServiceRequest s WHERE s.userId = :id")
     List<ServiceRequest> getByAccountRequestId(@Param("id") Integer id);
 }
