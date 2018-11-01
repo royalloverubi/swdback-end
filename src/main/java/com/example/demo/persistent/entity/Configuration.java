@@ -39,10 +39,10 @@ public class Configuration {
     private Double price;
 
     @Column(name = "is_active")
-    private Boolean isActive;
+    private Boolean active;
 
-    @Column(name = "id_deleted")
-    private Boolean idDeleted;
+    @Column(name = "is_deleted")
+    private Boolean deleted;
 
     public Integer getId() {
         return id;
@@ -116,19 +116,27 @@ public class Configuration {
         this.headphone = headphone;
     }
 
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
     public Boolean getActive() {
-        return isActive;
+        return active;
     }
 
     public void setActive(Boolean active) {
-        isActive = active;
+        this.active = active;
     }
 
-    public Boolean getIdDeleted() {
-        return idDeleted;
+    public Boolean getDeleted() {
+        return deleted;
     }
 
-    public void setIdDeleted(Boolean idDeleted) {
-        this.idDeleted = idDeleted;
+    public void setDeleted(Boolean deleted) {
+        this.deleted = deleted;
     }
 }

@@ -12,10 +12,10 @@ import java.util.List;
 @Repository
 public interface ConfigurationRepository extends JpaRepository<Configuration, Integer> {
 
-    @Query("SELECT c FROM Configuration c WHERE c.cyberGamingId = :cyberId AND c.idDeleted = false")
+    @Query("SELECT c FROM Configuration c WHERE c.cyberGamingId = :cyberId AND c.deleted = false")
     List<Configuration> findAllByCyberGamingId(@Param("cyberId") Integer cyberId);
 
-    @Query("UPDATE Configuration c SET c.idDeleted = true WHERE c.id = :id")
+    @Query("UPDATE Configuration c SET c.deleted = true WHERE c.id = :id")
     @Modifying
     void deleteByID(@Param("id") Integer id);
 

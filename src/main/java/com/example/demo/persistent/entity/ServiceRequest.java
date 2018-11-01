@@ -67,10 +67,10 @@ public class ServiceRequest {
     private Boolean isApproved;
 
     @Column(name = "is_active")
-    private Boolean isActive;
+    private Boolean active;
 
-    @Column(name = "id_deleted")
-    private Boolean idDeleted;
+    @Column(name = "is_deleted")
+    private Boolean deleted;
 
     public Integer getId() {
         return id;
@@ -120,14 +120,6 @@ public class ServiceRequest {
         isDone = done;
     }
 
-    public LocalDateTime getDateRequest() {
-        return dateRequest;
-    }
-
-    public void setDateRequest(LocalDateTime dateRequest) {
-        this.dateRequest = dateRequest;
-    }
-
     public Double getIsPaid() {
         return isPaid;
     }
@@ -144,6 +136,14 @@ public class ServiceRequest {
         this.paidDate = paidDate;
     }
 
+    public LocalDateTime getDateRequest() {
+        return dateRequest;
+    }
+
+    public void setDateRequest(LocalDateTime dateRequest) {
+        this.dateRequest = dateRequest;
+    }
+
     public LocalDateTime getGoingDate() {
         return goingDate;
     }
@@ -152,8 +152,44 @@ public class ServiceRequest {
         this.goingDate = goingDate;
     }
 
+    public String getEvaluation() {
+        return evaluation;
+    }
+
+    public void setEvaluation(String evaluation) {
+        this.evaluation = evaluation;
+    }
+
+    public Integer getStar() {
+        return star;
+    }
+
     public void setStar(Integer star) {
         this.star = star;
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public Double getTotalPrice() {
@@ -188,57 +224,19 @@ public class ServiceRequest {
         isApproved = approved;
     }
 
-    public String getEvaluation() {
-        return evaluation;
-    }
-
-    public void setEvaluation(String evaluation) {
-        this.evaluation = evaluation;
-    }
-
-    public Double getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(Double longitude) {
-        this.longitude = longitude;
-    }
-
-    public Double getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(Double latitude) {
-        this.latitude = latitude;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
     public Boolean getActive() {
-        return isActive;
+        return active;
     }
 
     public void setActive(Boolean active) {
-        isActive = active;
+        active = active;
     }
 
-    public Boolean getIdDeleted() {
-        return idDeleted;
+    public Boolean getDeleted() {
+        return deleted;
     }
 
-    public void setIdDeleted(Boolean idDeleted) {
-        this.idDeleted = idDeleted;
+    public void setDeleted(Boolean deleted) {
+        deleted = deleted;
     }
-
-    public Integer getStar() {
-        return star;
-    }
-
-
 }

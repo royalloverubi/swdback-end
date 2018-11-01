@@ -17,10 +17,10 @@ public interface CyberGamingRepository extends JpaRepository<CyberGaming, Intege
     @Query("SELECT c FROM  CyberGaming c WHERE c.id = :id")
     CyberGaming findByID(@Param("id") Integer id);
 
-    @Query("update CyberGaming c set c.idDeleted = true where c.id = :id")
+    @Query("update CyberGaming c set c.deleted = true where c.id = :id")
     @Modifying
     void deleteByID(@Param("id") Integer id);
 
-    @Query("SELECT c FROM CyberGaming c WHERE c.idDeleted = false ")
+    @Query("SELECT c FROM CyberGaming c WHERE c.deleted = false")
     List<CyberGaming> getAll();
 }

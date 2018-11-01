@@ -12,13 +12,13 @@ import java.util.List;
 @Repository
 public interface AccountRepository extends JpaRepository<Account, Integer> {
 
-    @Query("SELECT a FROM Account a WHERE a.username = :username AND a.password = :password AND a.idDeleted = false")
+    @Query("SELECT a FROM Account a WHERE a.username = :username AND a.password = :password AND a.deleted = false")
     Account findByUsernameAndPassword(@Param("username") String username, @Param("password") String password);
 
-    @Query("SELECT a FROM Account a WHERE a.idDeleted = false ")
+    @Query("SELECT a FROM Account a WHERE a.deleted = false ")
     List<Account> findAllByIsDelete();
 
-    @Query("UPDATE Account a SET a.idDeleted = TRUE WHERE a.id = :id")
+    @Query("UPDATE Account a SET a.deleted = TRUE WHERE a.id = :id")
     @Modifying
     void deleteByID(Integer id);
 

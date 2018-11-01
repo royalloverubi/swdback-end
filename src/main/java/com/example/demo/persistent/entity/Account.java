@@ -21,10 +21,10 @@ public class Account {
     private String role;
 
     @Column(name = "is_active")
-    private Boolean isActive;
+    private Boolean active;
 
-    @Column(name = "id_deleted")
-    private Boolean idDeleted;
+    @Column(name = "is_deleted")
+    private Boolean deleted;
 
     public Integer getId() {
         return id;
@@ -59,18 +59,18 @@ public class Account {
     }
 
     public Boolean getActive() {
-        return isActive;
+        return active;
     }
 
     public void setActive(Boolean active) {
-        isActive = active;
+        active = active;
     }
 
-    public Boolean getIdDeleted() {
-        return idDeleted;
+    public Boolean getDeleted() {
+        return deleted;
     }
 
-    public void setIdDeleted(Boolean idDeleted) {
-        this.idDeleted = idDeleted;
+    public void setDeleted(Boolean deleted) {
+        deleted = deleted;
     }
 }

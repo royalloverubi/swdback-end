@@ -8,9 +8,9 @@ public class GameCategoryDTO implements Serializable {
 
     private String type;
 
-    private Boolean isActive;
+    private Boolean active;
 
-    private Boolean idDeleted;
+    private Boolean delete;
 
     public Integer getId() {
         return Id;
@@ -29,18 +29,18 @@ public class GameCategoryDTO implements Serializable {
     }
 
     public Boolean getActive() {
-        return isActive;
+        return active;
     }
 
     public void setActive(Boolean active) {
-        isActive = active;
+        active = active;
     }
 
-    public Boolean getIdDeleted() {
-        return idDeleted;
+    public Boolean getDeleted() {
+        return delete;
     }
 
-    public void setIdDeleted(Boolean idDeleted) {
-        this.idDeleted = idDeleted;
+    public void setDeleted(Boolean deleted) {
+        delete = deleted;
     }
 }
