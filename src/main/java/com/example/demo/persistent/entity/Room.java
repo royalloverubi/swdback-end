@@ -74,7 +74,7 @@ public class Room {
     }
 
     public void setActive(Boolean active) {
-        active = active;
+        this.active = active;
     }
 
     public Boolean getDeleted() {
@@ -82,6 +82,6 @@ public class Room {
     }
 
     public void setDeleted(Boolean deleted) {
-        deleted = deleted;
+        this.deleted = deleted;
     }
 }

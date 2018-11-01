@@ -96,7 +96,7 @@ public class Customer {
     }
 
     public void setActive(Boolean active) {
-        active = active;
+        this.active = active;
     }
 
     public Boolean getDeleted() {
@@ -104,6 +104,6 @@ public class Customer {
     }
 
     public void setDeleted(Boolean deleted) {
-        deleted = deleted;
+        this.deleted = deleted;
     }
 }

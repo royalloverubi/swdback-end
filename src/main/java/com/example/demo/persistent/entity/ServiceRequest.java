@@ -229,7 +229,7 @@ public class ServiceRequest {
     }
 
     public void setActive(Boolean active) {
-        active = active;
+        this.active = active;
     }
 
     public Boolean getDeleted() {
@@ -237,6 +237,6 @@ public class ServiceRequest {
     }
 
     public void setDeleted(Boolean deleted) {
-        deleted = deleted;
+        this.deleted = deleted;
     }
 }

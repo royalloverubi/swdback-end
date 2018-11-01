@@ -26,7 +26,7 @@ public class ConfigurationDTO implements Serializable {
 
     private Boolean active;
 
-    private Boolean delete;
+    private Boolean deleted;
 
     public Integer getId() {
         return id;
@@ -113,14 +113,14 @@ public class ConfigurationDTO implements Serializable {
     }
 
     public void setActive(Boolean active) {
-        active = active;
+        this.active = active;
     }
 
     public Boolean getDeleted() {
-        return delete;
+        return deleted;
     }
 
     public void setDeleted(Boolean deleted) {
-        delete = deleted;
+        this.deleted = deleted;
     }
 }

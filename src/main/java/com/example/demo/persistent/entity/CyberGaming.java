@@ -107,7 +107,7 @@ public class CyberGaming {
     }
 
     public void setActive(Boolean active) {
-        active = active;
+        this.active = active;
     }
 
     public Boolean getDeleted() {

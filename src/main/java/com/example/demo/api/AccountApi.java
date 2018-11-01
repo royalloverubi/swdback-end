@@ -25,7 +25,7 @@ public interface AccountApi {
     @GetMapping("/getAll")
     ResponseEntity<List<AccountDTO>> getAll();
 
-    @ApiOperation(tags = {"Account",}, notes = "", value = "Get All Account")
+    @ApiOperation(tags = {"Account",}, notes = "", value = "Delete Account")
     @DeleteMapping("/delete/{id}")
     ResponseEntity<Map<String, Boolean>> delete(@PathVariable("id") Integer id);
 

@@ -2,33 +2,54 @@ package com.example.demo.api.impl;
 
 
 import com.example.demo.api.RoomApi;
+import com.example.demo.service.RoomService;
+import com.example.demo.service.dto.RoomDTO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @RestController
 public class RoomController implements RoomApi {
+
+    @Autowired
+    RoomService roomService;
+
     @Override
-    public ResponseEntity<Void> getAll() {
-        return null;
+    public ResponseEntity<List<RoomDTO>> getAll() {
+        List<RoomDTO> roomDTOS = roomService.getAll();
+        return ResponseEntity.ok(roomDTOS);
     }
 
     @Override
-    public ResponseEntity<Void> create() {
-        return null;
+    public ResponseEntity<RoomDTO> create(@RequestBody RoomDTO roomDTO) {
+        RoomDTO dto = roomService.create(roomDTO);
+        return ResponseEntity.ok(dto);
     }
 
     @Override
-    public ResponseEntity<Void> update() {
-        return null;
+    public ResponseEntity<RoomDTO> update(@RequestBody RoomDTO roomDTO) {
+        RoomDTO dto = roomService.update(roomDTO);
+        return ResponseEntity.ok(dto);
     }
 
     @Override
-    public ResponseEntity<Void> getById() {
-        return null;
+    public ResponseEntity<RoomDTO> getById(@RequestParam("id") Integer id) {
+        RoomDTO roomDTO = roomService.getByID(id);
+        return ResponseEntity.ok(roomDTO);
     }
 
     @Override
-    public ResponseEntity<Void> delete(Long id) {
-        return null;
+    public ResponseEntity<Map<String, Boolean>> delete(@PathVariable("id") Integer id) {
+        Boolean result = roomService.delete(id);
+        Map<String, Boolean> resul = new HashMap<>();
+        resul.put("Content", result);
+        return ResponseEntity.ok(resul);
     }
 }
