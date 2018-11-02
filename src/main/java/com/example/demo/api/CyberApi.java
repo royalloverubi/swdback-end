@@ -16,19 +16,19 @@ import java.util.Map;
 public interface CyberApi {
 
     @ApiOperation(tags = {"Cyber",}, notes = "", value = "Get Cyber By Id")
-    @GetMapping("/getById")
-    ResponseEntity<CyberGamingDTO> getById(@RequestParam("id") Integer id);
+    @GetMapping("/{id}")
+    ResponseEntity<CyberGamingDTO> getById(@PathVariable("id") Integer id);
 
     @ApiOperation(tags = {"Cyber",}, notes = "", value = "Create new Cyber")
-    @PostMapping("/create")
+    @PostMapping("")
     ResponseEntity<CyberGamingDTO> create(@RequestBody CyberGamingDTO cyberGamingDTO);
 
     @ApiOperation(tags = {"Cyber",}, notes = "", value = "Update Cyber")
-    @PutMapping("/update")
+    @PutMapping("")
     ResponseEntity<CyberGamingDTO> update(@RequestBody CyberGamingDTO cyberGamingDTO);
 
     @ApiOperation(tags = {"Cyber",}, notes = "", value = "Delete Cyber")
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     ResponseEntity<Map<String, Boolean>> delete(@PathVariable("id") Integer id);
 
     @ApiOperation(tags = {"Cyber",}, notes = "", value = "Get Cyber By AccountId")
@@ -36,6 +36,6 @@ public interface CyberApi {
     ResponseEntity<CyberGamingDTO> getByAccountId(@RequestParam("id") Integer accountId);
 
     @ApiOperation(tags = {"Cyber",}, notes = "", value = "Get All Cyber")
-    @GetMapping("/getAll")
+    @GetMapping("")
     ResponseEntity<List<CyberGamingDTO>> getAll();
 }

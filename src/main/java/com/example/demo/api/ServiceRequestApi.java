@@ -14,19 +14,19 @@ import java.util.Map;
 public interface ServiceRequestApi {
 
     @ApiOperation(tags = {"ServiceRequest",}, notes = "", value = "Get ServiceRequest By Id")
-    @GetMapping("/getById")
-    ResponseEntity<ServiceRequestDTO> getById(@RequestParam("id") Integer id);
+    @GetMapping("/{id}")
+    ResponseEntity<ServiceRequestDTO> getById(@PathVariable("id") Integer id);
 
     @ApiOperation(tags = {"ServiceRequest",}, notes = "", value = "Update ServiceRequest")
-    @PutMapping("/update")
+    @PutMapping("")
     ResponseEntity<ServiceRequestDTO> update(@RequestBody ServiceRequestDTO serviceRequestDTO);
 
     @ApiOperation(tags = {"ServiceRequest",}, notes = "", value = "Create ServiceRequest")
-    @PostMapping("/create")
+    @PostMapping("")
     ResponseEntity<ServiceRequestDTO> create(@RequestBody ServiceRequestDTO serviceRequestDTO);
 
     @ApiOperation(tags = {"ServiceRequest",}, notes = "", value = "Delete ServiceRequest")
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     ResponseEntity<Map<String, Boolean>> delete(@PathVariable("id") Integer id);
 
     @ApiOperation(tags = {"ServiceRequest",}, notes = "", value = "Get ServiceRequest By Account Request Id")

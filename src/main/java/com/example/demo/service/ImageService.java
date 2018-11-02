@@ -7,4 +7,10 @@ import java.util.List;
 public interface ImageService {
 
     List<ImageDTO> getByCyberId(Integer cyberId);
+
+    ImageDTO create(ImageDTO imageDTO);
+
+    ImageDTO update(ImageDTO imageDTO);
+
+    Boolean delete (Integer id);
 }

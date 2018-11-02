@@ -1,9 +1,13 @@
 package com.example.demo.api;
 
+import com.example.demo.service.dto.ImageDTO;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Map;
 
 @Component
 @RequestMapping("/image")
@@ -11,17 +15,17 @@ public interface ImageApi {
 
     @ApiOperation(tags = {"Image",}, notes = "", value = "Get Image By Cyber Id")
     @GetMapping("/getByCyberId")
-    ResponseEntity<Void> getByCyberId();
+    ResponseEntity<List<ImageDTO>> getByCyberId(@RequestParam("cyberId") Integer cyberId);
 
     @ApiOperation(tags = {"Image",}, notes = "", value = "Update Image")
-    @PutMapping("/update")
-    ResponseEntity<Void> update();
+    @PutMapping("")
+    ResponseEntity<ImageDTO> update(@RequestBody ImageDTO imageDTO);
 
     @ApiOperation(tags = {"Image",}, notes = "", value = "Create Image")
-    @PostMapping("/create")
-    ResponseEntity<Void> create();
+    @PostMapping("")
+    ResponseEntity<ImageDTO> create(@RequestBody ImageDTO imageDTO);
 
     @ApiOperation(tags = {"Image",}, notes = "", value = "Delete Image")
-    @DeleteMapping("/delete/{id}")
-    ResponseEntity<Void> delete(@PathVariable("id") Long id);
+    @DeleteMapping("/{id}")
+    ResponseEntity<Map<String, Boolean>> delete(@PathVariable("id") Integer id);
 }

@@ -40,7 +40,7 @@ public class RoomController implements RoomApi {
     }
 
     @Override
-    public ResponseEntity<RoomDTO> getById(@RequestParam("id") Integer id) {
+    public ResponseEntity<RoomDTO> getById(@PathVariable("id") Integer id) {
         RoomDTO roomDTO = roomService.getByID(id);
         return ResponseEntity.ok(roomDTO);
     }

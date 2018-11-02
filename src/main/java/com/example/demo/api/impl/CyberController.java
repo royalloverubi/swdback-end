@@ -22,7 +22,7 @@ public class CyberController implements CyberApi {
     CyberGamingService cyberGamingService;
 
     @Override
-    public ResponseEntity<CyberGamingDTO> getById(@RequestParam("id") Integer id) {
+    public ResponseEntity<CyberGamingDTO> getById(@PathVariable("id") Integer id) {
         CyberGamingDTO cyberGamingDTO = cyberGamingService.getById(id);
         return ResponseEntity.ok(cyberGamingDTO);
     }

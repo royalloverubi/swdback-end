@@ -13,18 +13,18 @@ import java.util.Map;
 public interface CustomerApi {
 
     @ApiOperation(tags = {"Customer",}, notes = "", value = "Get Customer By Account Id")
-    @GetMapping("/getByAccountId")
-    ResponseEntity<CustomerDTO> getByAccountId(@RequestParam("accountId") Integer accountId);
+    @GetMapping("/{accountId}")
+    ResponseEntity<CustomerDTO> getByAccountId(@PathVariable("accountId") Integer accountId);
 
     @ApiOperation(tags = {"Customer",}, notes = "", value = "Update Customer")
-    @PostMapping("/update")
+    @PostMapping("")
     ResponseEntity<CustomerDTO> update(@RequestBody CustomerDTO customerDTO);
 
     @ApiOperation(tags = {"Customer",}, notes = "", value = "Create Customer")
-    @PutMapping("/create")
+    @PutMapping("")
     ResponseEntity<CustomerDTO> create(@RequestBody CustomerDTO customerDTO);
 
     @ApiOperation(tags = {"Customer",}, notes = "", value = "Delete Customer")
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     ResponseEntity<Map<String, Boolean>> delete(@PathVariable("id") Integer id);
 }

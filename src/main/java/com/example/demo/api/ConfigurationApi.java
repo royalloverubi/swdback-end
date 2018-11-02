@@ -14,22 +14,22 @@ import java.util.Map;
 public interface ConfigurationApi {
 
     @ApiOperation(tags = {"Configuration",}, notes = "", value = "Get Configuration By CyberId")
-    @GetMapping("/getByCyberId")
-    ResponseEntity<List<ConfigurationDTO>> getByCyberId(@RequestParam("cyberId") Integer cyberId);
+    @GetMapping("/getByCyberId/{cyberId}")
+    ResponseEntity<List<ConfigurationDTO>> getByCyberId(@PathVariable("cyberId") Integer cyberId);
 
     @ApiOperation(tags = {"Configuration",}, notes = "", value = "Create new Configuration")
-    @PostMapping("/create")
+    @PostMapping("")
     ResponseEntity<ConfigurationDTO> create(@RequestBody ConfigurationDTO configurationDTO);
 
     @ApiOperation(tags = {"Configuration",}, notes = "", value = "Update Configuration")
-    @PutMapping("/update")
+    @PutMapping("")
     ResponseEntity<ConfigurationDTO> update(@RequestBody ConfigurationDTO configurationDTO);
 
     @ApiOperation(tags = {"Configuration",}, notes = "", value = "Delete Configuration")
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     ResponseEntity<Map<String, Boolean>> delete(@PathVariable("id") Integer id);
 
     @ApiOperation(tags = {"Configuration",}, notes = "", value = "Get Configuration By Id")
-    @GetMapping("/getById")
-    ResponseEntity<ConfigurationDTO> getById(@RequestParam("id") Integer id);
+    @GetMapping("/{id}")
+    ResponseEntity<ConfigurationDTO> getById(@PathVariable("id") Integer id);
 }

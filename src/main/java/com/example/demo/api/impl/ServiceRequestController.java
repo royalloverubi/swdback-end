@@ -5,6 +5,7 @@ import com.example.demo.service.ServiceRequestService;
 import com.example.demo.service.dto.ServiceRequestDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,7 +21,7 @@ public class ServiceRequestController implements ServiceRequestApi {
     ServiceRequestService serviceRequestService;
 
     @Override
-    public ResponseEntity<ServiceRequestDTO> getById(@RequestParam("id") Integer id) {
+    public ResponseEntity<ServiceRequestDTO> getById(@PathVariable("id") Integer id) {
         ServiceRequestDTO serviceRequestDTO = serviceRequestService.getById(id);
         return ResponseEntity.ok(serviceRequestDTO);
     }

@@ -21,7 +21,7 @@ public class ConfigurationController implements ConfigurationApi {
     ConfigurationService configurationService;
 
     @Override
-    public ResponseEntity<List<ConfigurationDTO>> getByCyberId(@RequestParam("cyberId") Integer cyberId) {
+    public ResponseEntity<List<ConfigurationDTO>> getByCyberId(@PathVariable("cyberId") Integer cyberId) {
         List<ConfigurationDTO> configurationDTOS = configurationService.getByCyberId(cyberId);
         return ResponseEntity.ok(configurationDTOS);
     }
@@ -47,7 +47,7 @@ public class ConfigurationController implements ConfigurationApi {
     }
 
     @Override
-    public ResponseEntity<ConfigurationDTO> getById(@RequestParam("Id") Integer Id) {
+    public ResponseEntity<ConfigurationDTO> getById(@PathVariable("Id") Integer Id) {
         ConfigurationDTO configurationDTO = configurationService.getById(Id);
         return ResponseEntity.ok(configurationDTO);
     }
