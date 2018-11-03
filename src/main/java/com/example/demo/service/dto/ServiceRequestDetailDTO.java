@@ -1,75 +1,50 @@
-package com.example.demo.persistent.entity;
+package com.example.demo.service.dto;
 
-import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "service_request")
-public class ServiceRequest {
+public class ServiceRequestDetailDTO implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Integer id;
 
-    @Column(name = "customer_id")
-    private Integer userId;
+    private String username;
 
-    @Column(name = "cyber_gaming_id")
-    private Integer cyberGamingId;
+    private String cyberGamingName;
 
-    @Column(name = "duration")
     private Double duration;
 
-    @Column(name = "number_of_service_slot")
     private Integer numberOfServiceSlot;
 
-    @Column(name = "is_done")
     private Boolean isDone;
 
-    @Column(name = "is_paid")
     private Double isPaid;
 
-    @Column(name = "paid_date")
     private LocalDateTime paidDate;
 
-    @Column(name = "request_date")
     private LocalDateTime dateRequest;
 
-    @Column(name = "going_date")
     private LocalDateTime goingDate;
 
-    @Column(name = "evaluation")
     private String evaluation;
 
-    @Column(name = "star")
     private Integer star;
 
-    @Column(name = "longitude")
     private Double longitude;
 
-    @Column(name = "latitude")
     private Double latitude;
 
-    @Column(name = "code")
     private String code;
 
-    @Column(name = "total_price")
     private Double totalPrice;
 
-    @Column(name = "room_id")
-    private Integer roomId;
+    private String roomname;
 
-    @Column(name = "configuration_id")
-    private Integer configurationId;
+    private String configurationName;
 
-    @Column(name = "is_approved")
     private Boolean isApproved;
 
-    @Column(name = "is_active")
     private Boolean active;
 
-    @Column(name = "is_deleted")
     private Boolean deleted;
 
     public Integer getId() {
@@ -80,20 +55,20 @@ public class ServiceRequest {
         this.id = id;
     }
 
-    public Integer getUserId() {
-        return userId;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public Integer getCyberGamingId() {
-        return cyberGamingId;
+    public String getCyberGamingName() {
+        return cyberGamingName;
     }
 
-    public void setCyberGamingId(Integer cyberGamingId) {
-        this.cyberGamingId = cyberGamingId;
+    public void setCyberGamingName(String cyberGamingName) {
+        this.cyberGamingName = cyberGamingName;
     }
 
     public Double getDuration() {
@@ -200,20 +175,20 @@ public class ServiceRequest {
         this.totalPrice = totalPrice;
     }
 
-    public Integer getRoomId() {
-        return roomId;
+    public String getRoomname() {
+        return roomname;
     }
 
-    public void setRoomId(Integer roomId) {
-        this.roomId = roomId;
+    public void setRoomname(String roomname) {
+        this.roomname = roomname;
     }
 
-    public Integer getConfigurationId() {
-        return configurationId;
+    public String getConfigurationName() {
+        return configurationName;
     }
 
-    public void setConfigurationId(Integer configurationId) {
-        this.configurationId = configurationId;
+    public void setConfigurationName(String configurationName) {
+        this.configurationName = configurationName;
     }
 
     public Boolean getApproved() {

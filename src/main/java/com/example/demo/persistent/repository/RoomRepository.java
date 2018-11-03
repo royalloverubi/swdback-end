@@ -21,4 +21,7 @@ public interface RoomRepository extends JpaRepository<Room, Integer> {
     @Query("update Room r SET r.deleted = true WHERE r.id = :id")
     @Modifying
     void deleteByID(@Param("id") Integer id);
+
+    @Query("SELECT r.name FROM Room r WHERE r.id = :id")
+    Object getNameById(@Param("id") Integer id);
 }

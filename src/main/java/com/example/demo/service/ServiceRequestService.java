@@ -1,12 +1,13 @@
 package com.example.demo.service;
 
 import com.example.demo.service.dto.ServiceRequestDTO;
+import com.example.demo.service.dto.ServiceRequestDetailDTO;
 
 import java.util.List;
 
 public interface ServiceRequestService {
 
-    ServiceRequestDTO getById(Integer id);
+    ServiceRequestDetailDTO getById(Integer id);
 
     ServiceRequestDTO create(ServiceRequestDTO serviceRequestDTO);
 
@@ -14,5 +15,5 @@ public interface ServiceRequestService {
 
     Boolean delete(Integer id);
 
-    List<ServiceRequestDTO> getByAccountRequestId(Integer id);
+    List<ServiceRequestDetailDTO> getByAccountRequestId(Integer id);
 }

@@ -3,6 +3,7 @@ package com.example.demo.api.impl;
 import com.example.demo.api.ServiceRequestApi;
 import com.example.demo.service.ServiceRequestService;
 import com.example.demo.service.dto.ServiceRequestDTO;
+import com.example.demo.service.dto.ServiceRequestDetailDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,8 +22,8 @@ public class ServiceRequestController implements ServiceRequestApi {
     ServiceRequestService serviceRequestService;
 
     @Override
-    public ResponseEntity<ServiceRequestDTO> getById(@PathVariable("id") Integer id) {
-        ServiceRequestDTO serviceRequestDTO = serviceRequestService.getById(id);
+    public ResponseEntity<ServiceRequestDetailDTO> getById(@PathVariable("id") Integer id) {
+        ServiceRequestDetailDTO serviceRequestDTO = serviceRequestService.getById(id);
         return ResponseEntity.ok(serviceRequestDTO);
     }
 
@@ -47,8 +48,8 @@ public class ServiceRequestController implements ServiceRequestApi {
     }
 
     @Override
-    public ResponseEntity<List<ServiceRequestDTO>> getByAccountRequestId(@RequestParam("accountId") Integer id) {
-        List<ServiceRequestDTO> serviceRequestDTOS = serviceRequestService.getByAccountRequestId(id);
+    public ResponseEntity<List<ServiceRequestDetailDTO>> getByAccountRequestId(@RequestParam("accountId") Integer id) {
+        List<ServiceRequestDetailDTO> serviceRequestDTOS = serviceRequestService.getByAccountRequestId(id);
         return ResponseEntity.ok(serviceRequestDTOS);
     }
 }

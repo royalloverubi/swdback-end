@@ -16,4 +16,7 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
     @Query("update Customer u SET u.deleted = true WHERE u.id = :id")
     @Modifying
     void deleteByID(@Param("id") Integer id);
+
+    @Query("SELECT u.name FROM Customer u WHERE u.id = :id")
+    Object getNameById(@Param("id") Integer id);
 }

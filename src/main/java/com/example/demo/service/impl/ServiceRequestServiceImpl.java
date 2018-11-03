@@ -1,9 +1,10 @@
 package com.example.demo.service.impl;
 
 import com.example.demo.persistent.entity.ServiceRequest;
-import com.example.demo.persistent.repository.ServiceRequestRepository;
+import com.example.demo.persistent.repository.*;
 import com.example.demo.service.ServiceRequestService;
 import com.example.demo.service.dto.ServiceRequestDTO;
+import com.example.demo.service.dto.ServiceRequestDetailDTO;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
@@ -19,19 +20,26 @@ import java.util.Optional;
 public class ServiceRequestServiceImpl implements ServiceRequestService {
 
     private final ServiceRequestRepository serviceRequestRepository;
+    private final RoomRepository roomRepository;
+    private final ConfigurationRepository configurationRepository;
+    private final CyberGamingRepository cyberGamingRepository;
+    private final CustomerRepository customerRepository;
 
-    public ServiceRequestServiceImpl(ServiceRequestRepository serviceRequestRepository) {
+    public ServiceRequestServiceImpl(ServiceRequestRepository serviceRequestRepository, RoomRepository roomRepository, ConfigurationRepository configurationRepository, CyberGamingRepository cyberGamingRepository, CustomerRepository customerRepository) {
         this.serviceRequestRepository = serviceRequestRepository;
+        this.roomRepository = roomRepository;
+        this.configurationRepository = configurationRepository;
+        this.cyberGamingRepository = cyberGamingRepository;
+        this.customerRepository = customerRepository;
     }
 
     @Override
-    public ServiceRequestDTO getById(Integer id) {
+    public ServiceRequestDetailDTO getById(Integer id) {
         ServiceRequest serviceRequest = serviceRequestRepository.getByID(id);
         if(ObjectUtils.isEmpty(serviceRequest)) {
             return null;
         }
-        ModelMapper modelMapper = new ModelMapper();
-        return modelMapper.map(serviceRequest, ServiceRequestDTO.class);
+        return updateDetail(serviceRequest);
     }
 
     @Override
@@ -60,16 +68,25 @@ public class ServiceRequestServiceImpl implements ServiceRequestService {
     }
 
     @Override
-    public List<ServiceRequestDTO> getByAccountRequestId(Integer id) {
+    public List<ServiceRequestDetailDTO> getByAccountRequestId(Integer id) {
         List<ServiceRequest> serviceRequests = serviceRequestRepository.getByAccountRequestId(id);
         if(ObjectUtils.isEmpty(serviceRequests)) {
             return null;
         }
-        List<ServiceRequestDTO> serviceRequestDTOS = new ArrayList<>();
-        ModelMapper modelMapper = new ModelMapper();
+        List<ServiceRequestDetailDTO> serviceRequestDetailDTOS = new ArrayList<>();
         for (ServiceRequest sr: serviceRequests ) {
-            serviceRequestDTOS.add(modelMapper.map(sr, ServiceRequestDTO.class));
+            serviceRequestDetailDTOS.add(updateDetail(sr));
         }
-        return serviceRequestDTOS;
+        return serviceRequestDetailDTOS;
+    }
+
+    private ServiceRequestDetailDTO updateDetail(ServiceRequest serviceRequest) {
+        ModelMapper modelMapper = new ModelMapper();
+        ServiceRequestDetailDTO dto = modelMapper.map(serviceRequest, ServiceRequestDetailDTO.class);
+        dto.setUsername((String) customerRepository.getNameById(serviceRequest.getUserId()));
+        dto.setRoomname((String) roomRepository.getNameById(serviceRequest.getRoomId()));
+        dto.setCyberGamingName((String) cyberGamingRepository.getNameById(serviceRequest.getCyberGamingId()));
+        dto.setConfigurationName((String) configurationRepository.getNameById(serviceRequest.getConfigurationId()));
+        return dto;
     }
 }

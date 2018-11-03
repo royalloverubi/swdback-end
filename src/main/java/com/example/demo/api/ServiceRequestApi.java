@@ -1,6 +1,7 @@
 package com.example.demo.api;
 
 import com.example.demo.service.dto.ServiceRequestDTO;
+import com.example.demo.service.dto.ServiceRequestDetailDTO;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -15,7 +16,7 @@ public interface ServiceRequestApi {
 
     @ApiOperation(tags = {"ServiceRequest",}, notes = "", value = "Get ServiceRequest By Id")
     @GetMapping("/{id}")
-    ResponseEntity<ServiceRequestDTO> getById(@PathVariable("id") Integer id);
+    ResponseEntity<ServiceRequestDetailDTO> getById(@PathVariable("id") Integer id);
 
     @ApiOperation(tags = {"ServiceRequest",}, notes = "", value = "Update ServiceRequest")
     @PutMapping("")
@@ -31,5 +32,5 @@ public interface ServiceRequestApi {
 
     @ApiOperation(tags = {"ServiceRequest",}, notes = "", value = "Get ServiceRequest By Account Request Id")
     @GetMapping("/getByAccountRequestId")
-    ResponseEntity<List<ServiceRequestDTO>> getByAccountRequestId(@RequestParam("accountId") Integer id);
+    ResponseEntity<List<ServiceRequestDetailDTO>> getByAccountRequestId(@RequestParam("accountId") Integer id);
 }
