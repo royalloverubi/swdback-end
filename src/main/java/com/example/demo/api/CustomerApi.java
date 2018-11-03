@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @Component
@@ -27,4 +28,8 @@ public interface CustomerApi {
     @ApiOperation(tags = {"Customer",}, notes = "", value = "Delete Customer")
     @DeleteMapping("/{id}")
     ResponseEntity<Map<String, Boolean>> delete(@PathVariable("id") Integer id);
+
+    @ApiOperation(tags = {"Customer",}, notes = "", value = "Get All Customer")
+    @GetMapping("")
+    ResponseEntity<List<CustomerDTO>> getAll();
 }

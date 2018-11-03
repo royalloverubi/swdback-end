@@ -33,4 +33,6 @@ public interface ServiceRequestApi {
     @ApiOperation(tags = {"ServiceRequest",}, notes = "", value = "Get ServiceRequest By Account Request Id")
     @GetMapping("/getByAccountRequestId")
     ResponseEntity<List<ServiceRequestDetailDTO>> getByAccountRequestId(@RequestParam("accountId") Integer id);
+
+
 }

@@ -10,6 +10,8 @@ import org.springframework.util.ObjectUtils;
 
 import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -56,5 +58,19 @@ public class CustomerServiceImpl implements CustomerService {
         Optional.ofNullable(customerRepository.findById(id)).orElseThrow(() -> new EntityNotFoundException());
         customerRepository.deleteByID(id);
         return true;
+    }
+
+    @Override
+    public List<CustomerDTO> getAll() {
+        List<Customer> customers = customerRepository.getAll();
+        if(ObjectUtils.isEmpty(customers)) {
+            return null;
+        }
+        ModelMapper modelMapper = new ModelMapper();
+        List<CustomerDTO> dto = new ArrayList<>();
+        for (Customer cus : customers ) {
+            dto.add(modelMapper.map(cus, CustomerDTO.class));
+        }
+        return dto;
     }
 }

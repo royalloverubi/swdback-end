@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -43,5 +44,11 @@ public class CustomerController implements CustomerApi {
         Map<String, Boolean> resul = new HashMap<>();
         resul.put("Content", result);
         return ResponseEntity.ok(resul);
+    }
+
+    @Override
+    public ResponseEntity<List<CustomerDTO>> getAll() {
+        List<CustomerDTO> customerDTOS = customerService.getAll();
+        return ResponseEntity.ok(customerDTOS);
     }
 }

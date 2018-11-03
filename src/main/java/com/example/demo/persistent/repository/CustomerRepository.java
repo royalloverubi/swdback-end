@@ -7,6 +7,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 
@@ -19,4 +21,7 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 
     @Query("SELECT u.name FROM Customer u WHERE u.id = :id")
     Object getNameById(@Param("id") Integer id);
+
+    @Query("SELECT c FROM Customer c WHERE c.deleted = false ")
+    List<Customer> getAll();
 }
