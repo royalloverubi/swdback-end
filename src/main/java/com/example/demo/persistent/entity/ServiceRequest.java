@@ -2,6 +2,7 @@ package com.example.demo.persistent.entity;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 @Table(name = "service_request")
@@ -31,13 +32,13 @@ public class ServiceRequest {
     private Double isPaid;
 
     @Column(name = "paid_date")
-    private LocalDateTime paidDate;
+    private Date paidDate;
 
     @Column(name = "request_date")
-    private LocalDateTime dateRequest;
+    private Date dateRequest;
 
     @Column(name = "going_date")
-    private LocalDateTime goingDate;
+    private Date goingDate;
 
     @Column(name = "evaluation")
     private String evaluation;
@@ -128,27 +129,27 @@ public class ServiceRequest {
         this.isPaid = isPaid;
     }
 
-    public LocalDateTime getPaidDate() {
+    public Date getPaidDate() {
         return paidDate;
     }
 
-    public void setPaidDate(LocalDateTime paidDate) {
+    public void setPaidDate(Date paidDate) {
         this.paidDate = paidDate;
     }
 
-    public LocalDateTime getDateRequest() {
+    public Date getDateRequest() {
         return dateRequest;
     }
 
-    public void setDateRequest(LocalDateTime dateRequest) {
+    public void setDateRequest(Date dateRequest) {
         this.dateRequest = dateRequest;
     }
 
-    public LocalDateTime getGoingDate() {
+    public Date getGoingDate() {
         return goingDate;
     }
 
-    public void setGoingDate(LocalDateTime goingDate) {
+    public void setGoingDate(Date goingDate) {
         this.goingDate = goingDate;
     }
 

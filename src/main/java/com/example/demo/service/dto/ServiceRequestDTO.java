@@ -2,6 +2,7 @@ package com.example.demo.service.dto;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 public class ServiceRequestDTO implements Serializable {
 
@@ -19,11 +20,11 @@ public class ServiceRequestDTO implements Serializable {
 
     private Double isPaid;
 
-    private LocalDateTime paidDate;
+    private Date paidDate;
 
-    private LocalDateTime dateRequest;
+    private Date dateRequest;
 
-    private LocalDateTime goingDate;
+    private Date goingDate;
 
     private String evaluation;
 
@@ -103,27 +104,27 @@ public class ServiceRequestDTO implements Serializable {
         this.isPaid = isPaid;
     }
 
-    public LocalDateTime getPaidDate() {
+    public Date getPaidDate() {
         return paidDate;
     }
 
-    public void setPaidDate(LocalDateTime paidDate) {
+    public void setPaidDate(Date paidDate) {
         this.paidDate = paidDate;
     }
 
-    public LocalDateTime getDateRequest() {
+    public Date getDateRequest() {
         return dateRequest;
     }
 
-    public void setDateRequest(LocalDateTime dateRequest) {
+    public void setDateRequest(Date dateRequest) {
         this.dateRequest = dateRequest;
     }
 
-    public LocalDateTime getGoingDate() {
+    public Date getGoingDate() {
         return goingDate;
     }
 
-    public void setGoingDate(LocalDateTime goingDate) {
+    public void setGoingDate(Date goingDate) {
         this.goingDate = goingDate;
     }
 
