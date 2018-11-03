@@ -19,10 +19,10 @@ public interface ServiceRequestRepository extends JpaRepository<ServiceRequest, 
     @Modifying
     void deleteByID(@Param("id") Integer id);
 
-    @Query("SELECT s FROM ServiceRequest s WHERE s.userId = :id ORDER BY s.dateRequest DESC ")
+    @Query("SELECT s FROM ServiceRequest s WHERE s.userId = :id ORDER BY s.goingDate DESC ")
     List<ServiceRequest> getByAccountRequestId(@Param("id") Integer id);
 
-    @Query("SELECT s FROM ServiceRequest s WHERE s.deleted = false AND s.approved = false AND s.cyberGamingId = :cyberId")
+    @Query("SELECT s FROM ServiceRequest s WHERE s.deleted = false AND s.approved = false AND s.cyberGamingId = :cyberId ORDER BY s.dateRequest DESC ")
     List<ServiceRequest> getListNeedToAproving(@Param("cyberId") Integer cyberId);
 
     @Query("UPDATE ServiceRequest s SET s.approved = true WHERE s.id = :id")
