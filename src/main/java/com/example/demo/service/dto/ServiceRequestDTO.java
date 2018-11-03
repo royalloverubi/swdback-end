@@ -41,7 +41,7 @@ public class ServiceRequestDTO implements Serializable {
 
     private Integer configurationId;
 
-    private Boolean isApproved;
+    private Boolean approved;
 
     private Boolean active;
 
@@ -192,11 +192,11 @@ public class ServiceRequestDTO implements Serializable {
     }
 
     public Boolean getApproved() {
-        return isApproved;
+        return approved;
     }
 
     public void setApproved(Boolean approved) {
-        isApproved = approved;
+        this.approved = approved;
     }
 
     public Boolean getActive() {

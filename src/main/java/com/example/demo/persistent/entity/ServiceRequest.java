@@ -64,7 +64,7 @@ public class ServiceRequest {
     private Integer configurationId;
 
     @Column(name = "is_approved")
-    private Boolean isApproved;
+    private Boolean approved;
 
     @Column(name = "is_active")
     private Boolean active;
@@ -217,11 +217,11 @@ public class ServiceRequest {
     }
 
     public Boolean getApproved() {
-        return isApproved;
+        return approved;
     }
 
     public void setApproved(Boolean approved) {
-        isApproved = approved;
+        this.approved = approved;
     }
 
     public Boolean getActive() {

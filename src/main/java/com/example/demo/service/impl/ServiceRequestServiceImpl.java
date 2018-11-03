@@ -89,4 +89,24 @@ public class ServiceRequestServiceImpl implements ServiceRequestService {
         dto.setConfigurationName((String) configurationRepository.getNameById(serviceRequest.getConfigurationId()));
         return dto;
     }
+
+    @Override
+    public List<ServiceRequestDetailDTO> getListNeedToAprove(Integer cyberId) {
+        List<ServiceRequest> serviceRequests = serviceRequestRepository.getListNeedToAproving(cyberId);
+        if(ObjectUtils.isEmpty(serviceRequests)) {
+            return null;
+        }
+        List<ServiceRequestDetailDTO> serviceRequestDetailDTOS = new ArrayList<>();
+        for (ServiceRequest sr: serviceRequests ) {
+            serviceRequestDetailDTOS.add(updateDetail(sr));
+        }
+        return serviceRequestDetailDTOS;
+    }
+
+    @Override
+    public Boolean approveARequest(Integer id) {
+        Optional.ofNullable(serviceRequestRepository.findById(id)).orElseThrow(() -> new EntityNotFoundException());
+        serviceRequestRepository.approveRequest(id);
+        return true;
+    }
 }

@@ -16,4 +16,8 @@ public interface ServiceRequestService {
     Boolean delete(Integer id);
 
     List<ServiceRequestDetailDTO> getByAccountRequestId(Integer id);
+
+    List<ServiceRequestDetailDTO> getListNeedToAprove(Integer cyberId);
+
+    Boolean approveARequest(Integer id);
 }

@@ -31,8 +31,14 @@ public interface ServiceRequestApi {
     ResponseEntity<Map<String, Boolean>> delete(@PathVariable("id") Integer id);
 
     @ApiOperation(tags = {"ServiceRequest",}, notes = "", value = "Get ServiceRequest By Account Request Id")
-    @GetMapping("/getByAccountRequestId")
-    ResponseEntity<List<ServiceRequestDetailDTO>> getByAccountRequestId(@RequestParam("accountId") Integer id);
+    @GetMapping("/getByAccountRequestId/{accountId}")
+    ResponseEntity<List<ServiceRequestDetailDTO>> getByAccountRequestId(@PathVariable("accountId") Integer id);
 
+    @ApiOperation(tags = {"ServiceRequest",}, notes = "", value = "Get List ServiceRequest Need To Approve")
+    @GetMapping("/getListNeedToAprove/{cyberId}")
+    ResponseEntity<List<ServiceRequestDetailDTO>>getListNeedToAprove(@PathVariable("cyberId") Integer cyberId);
 
+    @ApiOperation(tags = {"ServiceRequest",}, notes = "", value = "Approve a ServiceRequest")
+    @PutMapping("/approve/{id}")
+    ResponseEntity<Map<String, Boolean>> approveRequest(@PathVariable("id") Integer id);
 }

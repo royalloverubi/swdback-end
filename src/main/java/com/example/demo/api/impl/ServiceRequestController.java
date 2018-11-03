@@ -48,8 +48,22 @@ public class ServiceRequestController implements ServiceRequestApi {
     }
 
     @Override
-    public ResponseEntity<List<ServiceRequestDetailDTO>> getByAccountRequestId(@RequestParam("accountId") Integer id) {
+    public ResponseEntity<List<ServiceRequestDetailDTO>> getByAccountRequestId(@PathVariable("accountId") Integer id) {
         List<ServiceRequestDetailDTO> serviceRequestDTOS = serviceRequestService.getByAccountRequestId(id);
         return ResponseEntity.ok(serviceRequestDTOS);
+    }
+
+    @Override
+    public ResponseEntity<List<ServiceRequestDetailDTO>> getListNeedToAprove(@PathVariable("cyberId") Integer cyberId) {
+        List<ServiceRequestDetailDTO> serviceRequestDTOS = serviceRequestService.getListNeedToAprove(cyberId);
+        return ResponseEntity.ok(serviceRequestDTOS);
+    }
+
+    @Override
+    public ResponseEntity<Map<String, Boolean>> approveRequest(Integer id) {
+        Boolean result = serviceRequestService.approveARequest(id);
+        Map<String, Boolean> resul = new HashMap<>();
+        resul.put("Content", result);
+        return ResponseEntity.ok(resul);
     }
 }
