@@ -30,9 +30,9 @@ public interface ServiceRequestApi {
     @DeleteMapping("/{id}")
     ResponseEntity<Map<String, Boolean>> delete(@PathVariable("id") Integer id);
 
-    @ApiOperation(tags = {"ServiceRequest",}, notes = "", value = "Get ServiceRequest By Account Request Id")
-    @GetMapping("/getByAccountRequestId/{accountId}")
-    ResponseEntity<List<ServiceRequestDetailDTO>> getByAccountRequestId(@PathVariable("accountId") Integer id);
+    @ApiOperation(tags = {"ServiceRequest",}, notes = "", value = "Get ServiceRequest By Customer Request Id")
+    @GetMapping("/getByAccountRequestId/{customerId}")
+    ResponseEntity<List<ServiceRequestDetailDTO>> getByAccountRequestId(@PathVariable("customerId") Integer id);
 
     @ApiOperation(tags = {"ServiceRequest",}, notes = "", value = "Get List ServiceRequest Need To Approve")
     @GetMapping("/getListNeedToAprove/{cyberId}")

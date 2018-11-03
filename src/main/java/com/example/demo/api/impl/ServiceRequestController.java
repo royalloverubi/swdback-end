@@ -48,7 +48,7 @@ public class ServiceRequestController implements ServiceRequestApi {
     }
 
     @Override
-    public ResponseEntity<List<ServiceRequestDetailDTO>> getByAccountRequestId(@PathVariable("accountId") Integer id) {
+    public ResponseEntity<List<ServiceRequestDetailDTO>> getByAccountRequestId(@PathVariable("customerId") Integer id) {
         List<ServiceRequestDetailDTO> serviceRequestDTOS = serviceRequestService.getByAccountRequestId(id);
         return ResponseEntity.ok(serviceRequestDTOS);
     }
