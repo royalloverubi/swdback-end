@@ -60,7 +60,7 @@ public class ServiceRequestController implements ServiceRequestApi {
     }
 
     @Override
-    public ResponseEntity<Map<String, Boolean>> approveRequest(Integer id) {
+    public ResponseEntity<Map<String, Boolean>> approveRequest(@PathVariable("id") Integer id) {
         Boolean result = serviceRequestService.approveARequest(id);
         Map<String, Boolean> resul = new HashMap<>();
         resul.put("Content", result);

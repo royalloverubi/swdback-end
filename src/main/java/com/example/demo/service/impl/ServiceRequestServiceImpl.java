@@ -167,7 +167,6 @@ public class ServiceRequestServiceImpl implements ServiceRequestService {
         GregorianCalendar cal = new GregorianCalendar();
         cal.setTime(date);
         cal.add(Calendar.HOUR, -7);
-
         return cal.getTime();
     }
 }
