@@ -26,10 +26,10 @@ public class ServiceRequest {
     private Integer numberOfServiceSlot;
 
     @Column(name = "is_done")
-    private Boolean isDone;
+    private Boolean done;
 
     @Column(name = "is_paid")
-    private Double isPaid;
+    private Boolean paid;
 
     @Column(name = "paid_date")
     private Date paidDate;
@@ -114,19 +114,19 @@ public class ServiceRequest {
     }
 
     public Boolean getDone() {
-        return isDone;
+        return done;
     }
 
     public void setDone(Boolean done) {
-        isDone = done;
+        this.done = done;
     }
 
-    public Double getIsPaid() {
-        return isPaid;
+    public Boolean getPaid() {
+        return paid;
     }
 
-    public void setIsPaid(Double isPaid) {
-        this.isPaid = isPaid;
+    public void setPaid(Boolean paid) {
+        this.paid = paid;
     }
 
     public Date getPaidDate() {

@@ -16,9 +16,9 @@ public class ServiceRequestDetailDTO implements Serializable {
 
     private Integer numberOfServiceSlot;
 
-    private Boolean isDone;
+    private Boolean done;
 
-    private Double isPaid;
+    private Boolean paid;
 
     private Date paidDate;
 
@@ -89,19 +89,19 @@ public class ServiceRequestDetailDTO implements Serializable {
     }
 
     public Boolean getDone() {
-        return isDone;
+        return done;
     }
 
     public void setDone(Boolean done) {
-        isDone = done;
+        this.done = done;
     }
 
-    public Double getIsPaid() {
-        return isPaid;
+    public Boolean getPaid() {
+        return paid;
     }
 
-    public void setIsPaid(Double isPaid) {
-        this.isPaid = isPaid;
+    public void setPaid(Boolean paid) {
+        this.paid = paid;
     }
 
     public Date getPaidDate() {
