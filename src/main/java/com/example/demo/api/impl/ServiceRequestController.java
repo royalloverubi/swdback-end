@@ -72,4 +72,16 @@ public class ServiceRequestController implements ServiceRequestApi {
         List<ServiceRequestDetailDTO> serviceRequestDTOS = serviceRequestService.getListNeedToAproveByAccountId(accountId);
         return ResponseEntity.ok(serviceRequestDTOS);
     }
+
+    @Override
+    public ResponseEntity<List<ServiceRequestDetailDTO>> getListAproved(@PathVariable("customerId") Integer customerId) {
+        List<ServiceRequestDetailDTO> serviceRequestDTOS = serviceRequestService.getListApproved(customerId);
+        return ResponseEntity.ok(serviceRequestDTOS);
+    }
+
+    @Override
+    public ResponseEntity<List<ServiceRequestDetailDTO>> getListDone(@PathVariable("customerId") Integer customerId) {
+        List<ServiceRequestDetailDTO> serviceRequestDTOS = serviceRequestService.getListDone(customerId);
+        return ResponseEntity.ok(serviceRequestDTOS);
+    }
 }

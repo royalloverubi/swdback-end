@@ -122,4 +122,30 @@ public class ServiceRequestServiceImpl implements ServiceRequestService {
         }
         return serviceRequestDetailDTOS;
     }
+
+    @Override
+    public List<ServiceRequestDetailDTO> getListApproved(Integer customerId) {
+        List<ServiceRequest> serviceRequests = serviceRequestRepository.getListApproved(customerId);
+        if(ObjectUtils.isEmpty(serviceRequests)) {
+            return null;
+        }
+        List<ServiceRequestDetailDTO> serviceRequestDetailDTOS = new ArrayList<>();
+        for (ServiceRequest sr: serviceRequests ) {
+            serviceRequestDetailDTOS.add(updateDetail(sr));
+        }
+        return serviceRequestDetailDTOS;
+    }
+
+    @Override
+    public List<ServiceRequestDetailDTO> getListDone(Integer customerId) {
+        List<ServiceRequest> serviceRequests = serviceRequestRepository.getListDone(customerId);
+        if(ObjectUtils.isEmpty(serviceRequests)) {
+            return null;
+        }
+        List<ServiceRequestDetailDTO> serviceRequestDetailDTOS = new ArrayList<>();
+        for (ServiceRequest sr: serviceRequests ) {
+            serviceRequestDetailDTOS.add(updateDetail(sr));
+        }
+        return serviceRequestDetailDTOS;
+    }
 }

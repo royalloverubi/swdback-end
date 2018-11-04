@@ -45,4 +45,12 @@ public interface ServiceRequestApi {
     @ApiOperation(tags = {"ServiceRequest",}, notes = "", value = "Get List ServiceRequest Need To ApproveByAccountId")
     @GetMapping("/getListNeedToAproveByAccountId/{accountId}")
     ResponseEntity<List<ServiceRequestDetailDTO>>getListNeedToAproveByAccountId(@PathVariable("accountId") Integer accountId);
+
+    @ApiOperation(tags = {"ServiceRequest",}, notes = "", value = "Get List ServiceRequest Approved By Customer Id")
+    @GetMapping("/getListAproved/{customerId}")
+    ResponseEntity<List<ServiceRequestDetailDTO>>getListAproved(@PathVariable("customerId") Integer customerId);
+
+    @ApiOperation(tags = {"ServiceRequest",}, notes = "", value = "Get List ServiceRequest Done By Customer Id")
+    @GetMapping("/getListDone/{customerId}")
+    ResponseEntity<List<ServiceRequestDetailDTO>>getListDone(@PathVariable("customerId") Integer customerId);
 }
