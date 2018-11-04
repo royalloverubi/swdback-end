@@ -26,4 +26,6 @@ public interface ServiceRequestService {
     List<ServiceRequestDetailDTO> getListApproved(Integer customerId);
 
     List<ServiceRequestDetailDTO> getListDone(Integer customerId);
+
+    Boolean completeARequest(Integer id);
 }

@@ -84,4 +84,13 @@ public class ServiceRequestController implements ServiceRequestApi {
         List<ServiceRequestDetailDTO> serviceRequestDTOS = serviceRequestService.getListDone(customerId);
         return ResponseEntity.ok(serviceRequestDTOS);
     }
+
+
+    @Override
+    public ResponseEntity<Map<String, Boolean>> completeRequest(@PathVariable("id") Integer id) {
+        Boolean result = serviceRequestService.completeARequest(id);
+        Map<String, Boolean> resul = new HashMap<>();
+        resul.put("Content", result);
+        return ResponseEntity.ok(resul);
+    }
 }

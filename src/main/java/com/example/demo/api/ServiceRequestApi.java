@@ -53,4 +53,8 @@ public interface ServiceRequestApi {
     @ApiOperation(tags = {"ServiceRequest",}, notes = "", value = "Get List ServiceRequest Done By Customer Id")
     @GetMapping("/getListDone/{customerId}")
     ResponseEntity<List<ServiceRequestDetailDTO>>getListDone(@PathVariable("customerId") Integer customerId);
+
+    @ApiOperation(tags = {"ServiceRequest",}, notes = "", value = "Complete a ServiceRequest")
+    @PutMapping("/complete/{id}")
+    ResponseEntity<Map<String, Boolean>> completeRequest(@PathVariable("id") Integer id);
 }

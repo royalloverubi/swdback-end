@@ -29,6 +29,10 @@ public interface ServiceRequestRepository extends JpaRepository<ServiceRequest, 
     @Modifying
     void approveRequest(@Param("id") Integer id);
 
+    @Query("UPDATE ServiceRequest s SET s.done = true WHERE s.id = :id")
+    @Modifying
+    void completeRequest(@Param("id") Integer id);
+
     @Query("SELECT s FROM ServiceRequest s, CyberGaming c WHERE s.deleted = false AND s.approved = false AND c.accountId = :accountId AND s.cyberGamingId = c.id")
     List<ServiceRequest> getListNeedToAprovingByAccountId(@Param("accountId") Integer accountId);
 

@@ -142,6 +142,13 @@ public class ServiceRequestServiceImpl implements ServiceRequestService {
         return serviceRequestDTOS;
     }
 
+    @Override
+    public Boolean completeARequest(Integer id) {
+        Optional.ofNullable(serviceRequestRepository.findById(id)).orElseThrow(() -> new EntityNotFoundException());
+        serviceRequestRepository.completeRequest(id);
+        return true;
+    }
+
     private ServiceRequestDetailDTO updateDetail(ServiceRequest serviceRequest) {
         ModelMapper modelMapper = new ModelMapper();
         ServiceRequestDetailDTO dto = modelMapper.map(serviceRequest, ServiceRequestDetailDTO.class);
