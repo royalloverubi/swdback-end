@@ -20,4 +20,6 @@ public interface ServiceRequestService {
     List<ServiceRequestDetailDTO> getListNeedToAprove(Integer cyberId);
 
     Boolean approveARequest(Integer id);
+
+    List<ServiceRequestDetailDTO> getListNeedToAproveByAccountId(Integer accountId);
 }

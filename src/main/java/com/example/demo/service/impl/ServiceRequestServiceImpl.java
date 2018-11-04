@@ -109,4 +109,17 @@ public class ServiceRequestServiceImpl implements ServiceRequestService {
         serviceRequestRepository.approveRequest(id);
         return true;
     }
+
+    @Override
+    public List<ServiceRequestDetailDTO> getListNeedToAproveByAccountId(Integer accountId) {
+        List<ServiceRequest> serviceRequests = serviceRequestRepository.getListNeedToAprovingByAccountId(accountId);
+        if(ObjectUtils.isEmpty(serviceRequests)) {
+            return null;
+        }
+        List<ServiceRequestDetailDTO> serviceRequestDetailDTOS = new ArrayList<>();
+        for (ServiceRequest sr: serviceRequests ) {
+            serviceRequestDetailDTOS.add(updateDetail(sr));
+        }
+        return serviceRequestDetailDTOS;
+    }
 }

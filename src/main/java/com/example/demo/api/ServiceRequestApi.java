@@ -34,11 +34,15 @@ public interface ServiceRequestApi {
     @GetMapping("/getByAccountRequestId/{customerId}")
     ResponseEntity<List<ServiceRequestDetailDTO>> getByAccountRequestId(@PathVariable("customerId") Integer id);
 
-    @ApiOperation(tags = {"ServiceRequest",}, notes = "", value = "Get List ServiceRequest Need To Approve")
+    @ApiOperation(tags = {"ServiceRequest",}, notes = "", value = "Get List ServiceRequest Need To Approve By CyberId")
     @GetMapping("/getListNeedToAprove/{cyberId}")
     ResponseEntity<List<ServiceRequestDetailDTO>>getListNeedToAprove(@PathVariable("cyberId") Integer cyberId);
 
     @ApiOperation(tags = {"ServiceRequest",}, notes = "", value = "Approve a ServiceRequest")
     @PutMapping("/approve/{id}")
     ResponseEntity<Map<String, Boolean>> approveRequest(@PathVariable("id") Integer id);
+
+    @ApiOperation(tags = {"ServiceRequest",}, notes = "", value = "Get List ServiceRequest Need To ApproveByAccountId")
+    @GetMapping("/getListNeedToAproveByAccountId/{accountId}")
+    ResponseEntity<List<ServiceRequestDetailDTO>>getListNeedToAproveByAccountId(@PathVariable("accountId") Integer accountId);
 }

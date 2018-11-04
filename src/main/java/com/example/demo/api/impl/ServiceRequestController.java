@@ -66,4 +66,10 @@ public class ServiceRequestController implements ServiceRequestApi {
         resul.put("Content", result);
         return ResponseEntity.ok(resul);
     }
+
+    @Override
+    public ResponseEntity<List<ServiceRequestDetailDTO>> getListNeedToAproveByAccountId(Integer accountId) {
+        List<ServiceRequestDetailDTO> serviceRequestDTOS = serviceRequestService.getListNeedToAproveByAccountId(accountId);
+        return ResponseEntity.ok(serviceRequestDTOS);
+    }
 }
