@@ -11,9 +11,7 @@ import org.springframework.util.ObjectUtils;
 
 import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 @Transactional
@@ -151,6 +149,25 @@ public class ServiceRequestServiceImpl implements ServiceRequestService {
         dto.setRoomname((String) roomRepository.getNameById(serviceRequest.getRoomId()));
         dto.setCyberGamingName((String) cyberGamingRepository.getNameById(serviceRequest.getCyberGamingId()));
         dto.setConfigurationName((String) configurationRepository.getNameById(serviceRequest.getConfigurationId()));
+
+        if(!ObjectUtils.isEmpty(dto.getDateRequest())) {
+            dto.setDateRequest(subtractDays(dto.getDateRequest()));
+        }
+        if(!ObjectUtils.isEmpty(dto.getPaidDate())) {
+            dto.setPaidDate(subtractDays(dto.getDateRequest()));
+        }
+        if(!ObjectUtils.isEmpty(dto.getGoingDate())) {
+            dto.setGoingDate(subtractDays(dto.getGoingDate()));
+        }
         return dto;
+    }
+
+
+    private Date subtractDays(Date date) {
+        GregorianCalendar cal = new GregorianCalendar();
+        cal.setTime(date);
+        cal.add(Calendar.HOUR, -7);
+
+        return cal.getTime();
     }
 }
