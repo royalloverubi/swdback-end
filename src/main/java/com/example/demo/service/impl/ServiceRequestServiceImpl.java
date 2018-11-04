@@ -34,12 +34,13 @@ public class ServiceRequestServiceImpl implements ServiceRequestService {
     }
 
     @Override
-    public ServiceRequestDetailDTO getById(Integer id) {
+    public ServiceRequestDTO getById(Integer id) {
         ServiceRequest serviceRequest = serviceRequestRepository.getByID(id);
         if(ObjectUtils.isEmpty(serviceRequest)) {
             return null;
         }
-        return updateDetail(serviceRequest);
+        ModelMapper modelMapper = new ModelMapper();
+        return modelMapper.map(serviceRequest, ServiceRequestDTO.class);
     }
 
     @Override
@@ -68,16 +69,17 @@ public class ServiceRequestServiceImpl implements ServiceRequestService {
     }
 
     @Override
-    public List<ServiceRequestDetailDTO> getByAccountRequestId(Integer id) {
+    public List<ServiceRequestDTO> getByAccountRequestId(Integer id) {
         List<ServiceRequest> serviceRequests = serviceRequestRepository.getByAccountRequestId(id);
         if(ObjectUtils.isEmpty(serviceRequests)) {
             return null;
         }
-        List<ServiceRequestDetailDTO> serviceRequestDetailDTOS = new ArrayList<>();
+        ModelMapper modelMapper = new ModelMapper();
+        List<ServiceRequestDTO> serviceRequestDTOS = new ArrayList<>();
         for (ServiceRequest sr: serviceRequests ) {
-            serviceRequestDetailDTOS.add(updateDetail(sr));
+            serviceRequestDTOS.add(modelMapper.map(sr, ServiceRequestDTO.class));
         }
-        return serviceRequestDetailDTOS;
+        return serviceRequestDTOS;
     }
 
     private ServiceRequestDetailDTO updateDetail(ServiceRequest serviceRequest) {
@@ -91,16 +93,17 @@ public class ServiceRequestServiceImpl implements ServiceRequestService {
     }
 
     @Override
-    public List<ServiceRequestDetailDTO> getListNeedToAprove(Integer cyberId) {
+    public List<ServiceRequestDTO> getListNeedToAprove(Integer cyberId) {
         List<ServiceRequest> serviceRequests = serviceRequestRepository.getListNeedToAproving(cyberId);
         if(ObjectUtils.isEmpty(serviceRequests)) {
             return null;
         }
-        List<ServiceRequestDetailDTO> serviceRequestDetailDTOS = new ArrayList<>();
+        ModelMapper modelMapper = new ModelMapper();
+        List<ServiceRequestDTO> serviceRequestDTOS = new ArrayList<>();
         for (ServiceRequest sr: serviceRequests ) {
-            serviceRequestDetailDTOS.add(updateDetail(sr));
+            serviceRequestDTOS.add(modelMapper.map(sr, ServiceRequestDTO.class));
         }
-        return serviceRequestDetailDTOS;
+        return serviceRequestDTOS;
     }
 
     @Override
@@ -124,28 +127,30 @@ public class ServiceRequestServiceImpl implements ServiceRequestService {
     }
 
     @Override
-    public List<ServiceRequestDetailDTO> getListApproved(Integer customerId) {
+    public List<ServiceRequestDTO> getListApproved(Integer customerId) {
         List<ServiceRequest> serviceRequests = serviceRequestRepository.getListApproved(customerId);
         if(ObjectUtils.isEmpty(serviceRequests)) {
             return null;
         }
-        List<ServiceRequestDetailDTO> serviceRequestDetailDTOS = new ArrayList<>();
+        ModelMapper modelMapper = new ModelMapper();
+        List<ServiceRequestDTO> serviceRequestDTOS = new ArrayList<>();
         for (ServiceRequest sr: serviceRequests ) {
-            serviceRequestDetailDTOS.add(updateDetail(sr));
+            serviceRequestDTOS.add(modelMapper.map(sr, ServiceRequestDTO.class));
         }
-        return serviceRequestDetailDTOS;
+        return serviceRequestDTOS;
     }
 
     @Override
-    public List<ServiceRequestDetailDTO> getListDone(Integer customerId) {
+    public List<ServiceRequestDTO> getListDone(Integer customerId) {
         List<ServiceRequest> serviceRequests = serviceRequestRepository.getListDone(customerId);
         if(ObjectUtils.isEmpty(serviceRequests)) {
             return null;
         }
-        List<ServiceRequestDetailDTO> serviceRequestDetailDTOS = new ArrayList<>();
+        ModelMapper modelMapper = new ModelMapper();
+        List<ServiceRequestDTO> serviceRequestDTOS = new ArrayList<>();
         for (ServiceRequest sr: serviceRequests ) {
-            serviceRequestDetailDTOS.add(updateDetail(sr));
+            serviceRequestDTOS.add(modelMapper.map(sr, ServiceRequestDTO.class));
         }
-        return serviceRequestDetailDTOS;
+        return serviceRequestDTOS;
     }
 }

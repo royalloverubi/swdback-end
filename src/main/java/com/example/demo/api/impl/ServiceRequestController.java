@@ -22,8 +22,8 @@ public class ServiceRequestController implements ServiceRequestApi {
     ServiceRequestService serviceRequestService;
 
     @Override
-    public ResponseEntity<ServiceRequestDetailDTO> getById(@PathVariable("id") Integer id) {
-        ServiceRequestDetailDTO serviceRequestDTO = serviceRequestService.getById(id);
+    public ResponseEntity<ServiceRequestDTO> getById(@PathVariable("id") Integer id) {
+        ServiceRequestDTO serviceRequestDTO = serviceRequestService.getById(id);
         return ResponseEntity.ok(serviceRequestDTO);
     }
 
@@ -48,14 +48,14 @@ public class ServiceRequestController implements ServiceRequestApi {
     }
 
     @Override
-    public ResponseEntity<List<ServiceRequestDetailDTO>> getByAccountRequestId(@PathVariable("customerId") Integer id) {
-        List<ServiceRequestDetailDTO> serviceRequestDTOS = serviceRequestService.getByAccountRequestId(id);
+    public ResponseEntity<List<ServiceRequestDTO>> getByAccountRequestId(@PathVariable("customerId") Integer id) {
+        List<ServiceRequestDTO> serviceRequestDTOS = serviceRequestService.getByAccountRequestId(id);
         return ResponseEntity.ok(serviceRequestDTOS);
     }
 
     @Override
-    public ResponseEntity<List<ServiceRequestDetailDTO>> getListNeedToAprove(@PathVariable("cyberId") Integer cyberId) {
-        List<ServiceRequestDetailDTO> serviceRequestDTOS = serviceRequestService.getListNeedToAprove(cyberId);
+    public ResponseEntity<List<ServiceRequestDTO>> getListNeedToAprove(@PathVariable("cyberId") Integer cyberId) {
+        List<ServiceRequestDTO> serviceRequestDTOS = serviceRequestService.getListNeedToAprove(cyberId);
         return ResponseEntity.ok(serviceRequestDTOS);
     }
 
@@ -74,14 +74,14 @@ public class ServiceRequestController implements ServiceRequestApi {
     }
 
     @Override
-    public ResponseEntity<List<ServiceRequestDetailDTO>> getListAproved(@PathVariable("customerId") Integer customerId) {
-        List<ServiceRequestDetailDTO> serviceRequestDTOS = serviceRequestService.getListApproved(customerId);
+    public ResponseEntity<List<ServiceRequestDTO>> getListAproved(@PathVariable("customerId") Integer customerId) {
+        List<ServiceRequestDTO> serviceRequestDTOS = serviceRequestService.getListApproved(customerId);
         return ResponseEntity.ok(serviceRequestDTOS);
     }
 
     @Override
-    public ResponseEntity<List<ServiceRequestDetailDTO>> getListDone(@PathVariable("customerId") Integer customerId) {
-        List<ServiceRequestDetailDTO> serviceRequestDTOS = serviceRequestService.getListDone(customerId);
+    public ResponseEntity<List<ServiceRequestDTO>> getListDone(@PathVariable("customerId") Integer customerId) {
+        List<ServiceRequestDTO> serviceRequestDTOS = serviceRequestService.getListDone(customerId);
         return ResponseEntity.ok(serviceRequestDTOS);
     }
 }
