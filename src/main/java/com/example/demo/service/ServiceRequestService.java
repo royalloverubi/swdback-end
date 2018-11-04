@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ServiceRequestService {
 
-    ServiceRequestDTO getById(Integer id);
+    ServiceRequestDetailDTO getById(Integer id);
 
     ServiceRequestDTO create(ServiceRequestDTO serviceRequestDTO);
 
@@ -15,15 +15,15 @@ public interface ServiceRequestService {
 
     Boolean delete(Integer id);
 
-    List<ServiceRequestDTO> getByAccountRequestId(Integer id);
+    List<ServiceRequestDetailDTO> getByAccountRequestId(Integer id);
 
-    List<ServiceRequestDTO> getListNeedToAprove(Integer cyberId);
+    List<ServiceRequestDetailDTO> getListNeedToAprove(Integer cyberId);
 
     Boolean approveARequest(Integer id);
 
     List<ServiceRequestDetailDTO> getListNeedToAproveByAccountId(Integer accountId);
 
-    List<ServiceRequestDTO> getListApproved(Integer customerId);
+    List<ServiceRequestDetailDTO> getListApproved(Integer customerId);
 
-    List<ServiceRequestDTO> getListDone(Integer customerId);
+    List<ServiceRequestDetailDTO> getListDone(Integer customerId);
 }

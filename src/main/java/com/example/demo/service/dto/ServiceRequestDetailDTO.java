@@ -8,7 +8,11 @@ public class ServiceRequestDetailDTO implements Serializable {
 
     private Integer id;
 
+    private Integer userId;
+
     private String username;
+
+    private Integer cyberGamingId;
 
     private String cyberGamingName;
 
@@ -38,7 +42,11 @@ public class ServiceRequestDetailDTO implements Serializable {
 
     private Double totalPrice;
 
+    private Integer roomId;
+
     private String roomname;
+
+    private Integer configurationId;
 
     private String configurationName;
 
@@ -214,5 +222,37 @@ public class ServiceRequestDetailDTO implements Serializable {
 
     public void setDeleted(Boolean deleted) {
         this.deleted = deleted;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public Integer getCyberGamingId() {
+        return cyberGamingId;
+    }
+
+    public void setCyberGamingId(Integer cyberGamingId) {
+        this.cyberGamingId = cyberGamingId;
+    }
+
+    public Integer getRoomId() {
+        return roomId;
+    }
+
+    public void setRoomId(Integer roomId) {
+        this.roomId = roomId;
+    }
+
+    public Integer getConfigurationId() {
+        return configurationId;
+    }
+
+    public void setConfigurationId(Integer configurationId) {
+        this.configurationId = configurationId;
     }
 }

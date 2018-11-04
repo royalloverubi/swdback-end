@@ -16,7 +16,7 @@ public interface ServiceRequestApi {
 
     @ApiOperation(tags = {"ServiceRequest",}, notes = "", value = "Get ServiceRequest By Id")
     @GetMapping("/{id}")
-    ResponseEntity<ServiceRequestDTO> getById(@PathVariable("id") Integer id);
+    ResponseEntity<ServiceRequestDetailDTO> getById(@PathVariable("id") Integer id);
 
     @ApiOperation(tags = {"ServiceRequest",}, notes = "", value = "Update ServiceRequest")
     @PutMapping("")
@@ -32,11 +32,11 @@ public interface ServiceRequestApi {
 
     @ApiOperation(tags = {"ServiceRequest",}, notes = "", value = "Get ServiceRequest By Customer Request Id")
     @GetMapping("/getByAccountRequestId/{customerId}")
-    ResponseEntity<List<ServiceRequestDTO>> getByAccountRequestId(@PathVariable("customerId") Integer id);
+    ResponseEntity<List<ServiceRequestDetailDTO>> getByAccountRequestId(@PathVariable("customerId") Integer id);
 
     @ApiOperation(tags = {"ServiceRequest",}, notes = "", value = "Get List ServiceRequest Need To Approve By CyberId")
     @GetMapping("/getListNeedToAprove/{cyberId}")
-    ResponseEntity<List<ServiceRequestDTO>>getListNeedToAprove(@PathVariable("cyberId") Integer cyberId);
+    ResponseEntity<List<ServiceRequestDetailDTO>>getListNeedToAprove(@PathVariable("cyberId") Integer cyberId);
 
     @ApiOperation(tags = {"ServiceRequest",}, notes = "", value = "Approve a ServiceRequest")
     @PutMapping("/approve/{id}")
@@ -48,9 +48,9 @@ public interface ServiceRequestApi {
 
     @ApiOperation(tags = {"ServiceRequest",}, notes = "", value = "Get List ServiceRequest Approved By Customer Id")
     @GetMapping("/getListAproved/{customerId}")
-    ResponseEntity<List<ServiceRequestDTO>>getListAproved(@PathVariable("customerId") Integer customerId);
+    ResponseEntity<List<ServiceRequestDetailDTO>>getListAproved(@PathVariable("customerId") Integer customerId);
 
     @ApiOperation(tags = {"ServiceRequest",}, notes = "", value = "Get List ServiceRequest Done By Customer Id")
     @GetMapping("/getListDone/{customerId}")
-    ResponseEntity<List<ServiceRequestDTO>>getListDone(@PathVariable("customerId") Integer customerId);
+    ResponseEntity<List<ServiceRequestDetailDTO>>getListDone(@PathVariable("customerId") Integer customerId);
 }

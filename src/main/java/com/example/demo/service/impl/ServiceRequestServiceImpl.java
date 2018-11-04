@@ -34,13 +34,13 @@ public class ServiceRequestServiceImpl implements ServiceRequestService {
     }
 
     @Override
-    public ServiceRequestDTO getById(Integer id) {
+    public ServiceRequestDetailDTO getById(Integer id) {
         ServiceRequest serviceRequest = serviceRequestRepository.getByID(id);
         if(ObjectUtils.isEmpty(serviceRequest)) {
             return null;
         }
         ModelMapper modelMapper = new ModelMapper();
-        return modelMapper.map(serviceRequest, ServiceRequestDTO.class);
+        return updateDetail(serviceRequest);
     }
 
     @Override
@@ -69,39 +69,29 @@ public class ServiceRequestServiceImpl implements ServiceRequestService {
     }
 
     @Override
-    public List<ServiceRequestDTO> getByAccountRequestId(Integer id) {
+    public List<ServiceRequestDetailDTO> getByAccountRequestId(Integer id) {
         List<ServiceRequest> serviceRequests = serviceRequestRepository.getByAccountRequestId(id);
         if(ObjectUtils.isEmpty(serviceRequests)) {
             return null;
         }
         ModelMapper modelMapper = new ModelMapper();
-        List<ServiceRequestDTO> serviceRequestDTOS = new ArrayList<>();
+        List<ServiceRequestDetailDTO> serviceRequestDTOS = new ArrayList<>();
         for (ServiceRequest sr: serviceRequests ) {
-            serviceRequestDTOS.add(modelMapper.map(sr, ServiceRequestDTO.class));
+            serviceRequestDTOS.add(updateDetail(sr));
         }
         return serviceRequestDTOS;
     }
 
-    private ServiceRequestDetailDTO updateDetail(ServiceRequest serviceRequest) {
-        ModelMapper modelMapper = new ModelMapper();
-        ServiceRequestDetailDTO dto = modelMapper.map(serviceRequest, ServiceRequestDetailDTO.class);
-        dto.setUsername((String) customerRepository.getNameById(serviceRequest.getUserId()));
-        dto.setRoomname((String) roomRepository.getNameById(serviceRequest.getRoomId()));
-        dto.setCyberGamingName((String) cyberGamingRepository.getNameById(serviceRequest.getCyberGamingId()));
-        dto.setConfigurationName((String) configurationRepository.getNameById(serviceRequest.getConfigurationId()));
-        return dto;
-    }
-
     @Override
-    public List<ServiceRequestDTO> getListNeedToAprove(Integer cyberId) {
+    public List<ServiceRequestDetailDTO> getListNeedToAprove(Integer cyberId) {
         List<ServiceRequest> serviceRequests = serviceRequestRepository.getListNeedToAproving(cyberId);
         if(ObjectUtils.isEmpty(serviceRequests)) {
             return null;
         }
         ModelMapper modelMapper = new ModelMapper();
-        List<ServiceRequestDTO> serviceRequestDTOS = new ArrayList<>();
+        List<ServiceRequestDetailDTO> serviceRequestDTOS = new ArrayList<>();
         for (ServiceRequest sr: serviceRequests ) {
-            serviceRequestDTOS.add(modelMapper.map(sr, ServiceRequestDTO.class));
+            serviceRequestDTOS.add(updateDetail(sr));
         }
         return serviceRequestDTOS;
     }
@@ -127,30 +117,40 @@ public class ServiceRequestServiceImpl implements ServiceRequestService {
     }
 
     @Override
-    public List<ServiceRequestDTO> getListApproved(Integer customerId) {
+    public List<ServiceRequestDetailDTO> getListApproved(Integer customerId) {
         List<ServiceRequest> serviceRequests = serviceRequestRepository.getListApproved(customerId);
         if(ObjectUtils.isEmpty(serviceRequests)) {
             return null;
         }
         ModelMapper modelMapper = new ModelMapper();
-        List<ServiceRequestDTO> serviceRequestDTOS = new ArrayList<>();
+        List<ServiceRequestDetailDTO> serviceRequestDTOS = new ArrayList<>();
         for (ServiceRequest sr: serviceRequests ) {
-            serviceRequestDTOS.add(modelMapper.map(sr, ServiceRequestDTO.class));
+            serviceRequestDTOS.add(updateDetail(sr));
         }
         return serviceRequestDTOS;
     }
 
     @Override
-    public List<ServiceRequestDTO> getListDone(Integer customerId) {
+    public List<ServiceRequestDetailDTO> getListDone(Integer customerId) {
         List<ServiceRequest> serviceRequests = serviceRequestRepository.getListDone(customerId);
         if(ObjectUtils.isEmpty(serviceRequests)) {
             return null;
         }
         ModelMapper modelMapper = new ModelMapper();
-        List<ServiceRequestDTO> serviceRequestDTOS = new ArrayList<>();
+        List<ServiceRequestDetailDTO> serviceRequestDTOS = new ArrayList<>();
         for (ServiceRequest sr: serviceRequests ) {
-            serviceRequestDTOS.add(modelMapper.map(sr, ServiceRequestDTO.class));
+            serviceRequestDTOS.add(updateDetail(sr));
         }
         return serviceRequestDTOS;
+    }
+
+    private ServiceRequestDetailDTO updateDetail(ServiceRequest serviceRequest) {
+        ModelMapper modelMapper = new ModelMapper();
+        ServiceRequestDetailDTO dto = modelMapper.map(serviceRequest, ServiceRequestDetailDTO.class);
+        dto.setUsername((String) customerRepository.getNameById(serviceRequest.getUserId()));
+        dto.setRoomname((String) roomRepository.getNameById(serviceRequest.getRoomId()));
+        dto.setCyberGamingName((String) cyberGamingRepository.getNameById(serviceRequest.getCyberGamingId()));
+        dto.setConfigurationName((String) configurationRepository.getNameById(serviceRequest.getConfigurationId()));
+        return dto;
     }
 }
