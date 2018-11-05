@@ -151,6 +151,19 @@ public class ServiceRequestServiceImpl implements ServiceRequestService {
         return true;
     }
 
+    @Override
+    public List<ServiceRequestDetailDTO> getListNeedToDoneByAccountId(Integer accountId) {
+        List<ServiceRequest> serviceRequests = serviceRequestRepository.getListNeedToDoneByAccountId(accountId);
+        if(ObjectUtils.isEmpty(serviceRequests)) {
+            return null;
+        }
+        List<ServiceRequestDetailDTO> serviceRequestDetailDTOS = new ArrayList<>();
+        for (ServiceRequest sr: serviceRequests ) {
+            serviceRequestDetailDTOS.add(updateDetail(sr));
+        }
+        return serviceRequestDetailDTOS;
+    }
+
     private ServiceRequestDetailDTO updateDetail(ServiceRequest serviceRequest) {
         ModelMapper modelMapper = new ModelMapper();
         ServiceRequestDetailDTO dto = modelMapper.map(serviceRequest, ServiceRequestDetailDTO.class);

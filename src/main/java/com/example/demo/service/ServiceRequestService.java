@@ -28,4 +28,6 @@ public interface ServiceRequestService {
     List<ServiceRequestDetailDTO> getListDone(Integer customerId);
 
     Boolean completeARequest(Integer id);
+
+    List<ServiceRequestDetailDTO> getListNeedToDoneByAccountId(Integer accountId);
 }

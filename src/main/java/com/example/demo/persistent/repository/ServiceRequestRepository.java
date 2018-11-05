@@ -33,7 +33,7 @@ public interface ServiceRequestRepository extends JpaRepository<ServiceRequest, 
     @Modifying
     void completeRequest(@Param("id") Integer id);
 
-    @Query("SELECT s FROM ServiceRequest s, CyberGaming c WHERE s.deleted = false AND s.approved = false AND c.accountId = :accountId AND s.cyberGamingId = c.id")
+    @Query("SELECT s FROM ServiceRequest s, CyberGaming c WHERE s.deleted = false AND s.approved = false AND c.accountId = :accountId AND s.cyberGamingId = c.id ORDER BY s.dateRequest DESC")
     List<ServiceRequest> getListNeedToAprovingByAccountId(@Param("accountId") Integer accountId);
 
     @Query("SELECT s FROM ServiceRequest s WHERE s.userId = :customerId AND s.approved = true AND s.done = false ")
@@ -41,4 +41,7 @@ public interface ServiceRequestRepository extends JpaRepository<ServiceRequest, 
 
     @Query("SELECT s FROM ServiceRequest s WHERE s.userId = :customerId AND s.approved = true AND s.done = true ")
     List<ServiceRequest> getListDone(@Param("customerId") Integer customerId);
+
+    @Query("SELECT s FROM ServiceRequest s, CyberGaming c WHERE s.deleted = false AND s.approved = true AND s.done = false AND c.accountId = :accountId AND s.cyberGamingId = c.id ORDER BY s.dateRequest DESC")
+    List<ServiceRequest> getListNeedToDoneByAccountId(@Param("accountId") Integer accountId);
 }
