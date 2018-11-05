@@ -24,4 +24,7 @@ public interface ConfigurationRepository extends JpaRepository<Configuration, In
 
     @Query("SELECT c.name FROM Configuration c WHERE c.id = :id")
     Object getNameById(@Param("id") Integer id);
+
+    @Query("SELECT c.price FROM Configuration c WHERE c.id = :id")
+    Object getPriceId(@Param("id") Integer id);
 }
