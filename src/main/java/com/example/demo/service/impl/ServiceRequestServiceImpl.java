@@ -103,18 +103,6 @@ public class ServiceRequestServiceImpl implements ServiceRequestService {
         return true;
     }
 
-    @Override
-    public List<ServiceRequestDetailDTO> getListNeedToAproveByAccountId(Integer accountId) {
-        List<ServiceRequest> serviceRequests = serviceRequestRepository.getListNeedToAprovingByAccountId(accountId);
-        if(ObjectUtils.isEmpty(serviceRequests)) {
-            return null;
-        }
-        List<ServiceRequestDetailDTO> serviceRequestDetailDTOS = new ArrayList<>();
-        for (ServiceRequest sr: serviceRequests ) {
-            serviceRequestDetailDTOS.add(updateDetail(sr));
-        }
-        return serviceRequestDetailDTOS;
-    }
 
     @Override
     public List<ServiceRequestDetailDTO> getListApproved(Integer customerId) {
@@ -152,8 +140,8 @@ public class ServiceRequestServiceImpl implements ServiceRequestService {
     }
 
     @Override
-    public List<ServiceRequestDetailDTO> getListNeedToDoneByAccountId(Integer accountId) {
-        List<ServiceRequest> serviceRequests = serviceRequestRepository.getListNeedToDoneByAccountId(accountId);
+    public List<ServiceRequestDetailDTO> getListNeedToDone(Integer cyberId) {
+        List<ServiceRequest> serviceRequests = serviceRequestRepository.getListNeedToDone(cyberId);
         if(ObjectUtils.isEmpty(serviceRequests)) {
             return null;
         }
@@ -171,16 +159,6 @@ public class ServiceRequestServiceImpl implements ServiceRequestService {
         dto.setRoomname((String) roomRepository.getNameById(serviceRequest.getRoomId()));
         dto.setCyberGamingName((String) cyberGamingRepository.getNameById(serviceRequest.getCyberGamingId()));
         dto.setConfigurationName((String) configurationRepository.getNameById(serviceRequest.getConfigurationId()));
-
-//        if(!ObjectUtils.isEmpty(dto.getDateRequest())) {
-//            dto.setDateRequest(subtractDays(dto.getDateRequest()));
-//        }
-//        if(!ObjectUtils.isEmpty(dto.getPaidDate())) {
-//            dto.setPaidDate(subtractDays(dto.getDateRequest()));
-//        }
-//        if(!ObjectUtils.isEmpty(dto.getGoingDate())) {
-//            dto.setGoingDate(subtractDays(dto.getGoingDate()));
-//        }
         return dto;
     }
 

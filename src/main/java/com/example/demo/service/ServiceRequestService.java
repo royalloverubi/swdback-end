@@ -21,13 +21,11 @@ public interface ServiceRequestService {
 
     Boolean approveARequest(Integer id);
 
-    List<ServiceRequestDetailDTO> getListNeedToAproveByAccountId(Integer accountId);
-
     List<ServiceRequestDetailDTO> getListApproved(Integer customerId);
 
     List<ServiceRequestDetailDTO> getListDone(Integer customerId);
 
     Boolean completeARequest(Integer id);
 
-    List<ServiceRequestDetailDTO> getListNeedToDoneByAccountId(Integer accountId);
+    List<ServiceRequestDetailDTO> getListNeedToDone(Integer cyberId);
 }

@@ -32,8 +32,8 @@ public interface CyberApi {
     ResponseEntity<Map<String, Boolean>> delete(@PathVariable("id") Integer id);
 
     @ApiOperation(tags = {"Cyber",}, notes = "", value = "Get Cyber By AccountId")
-    @GetMapping("/getByAccountId")
-    ResponseEntity<CyberGamingDTO> getByAccountId(@RequestParam("id") Integer accountId);
+    @GetMapping("/getByAccountId/{accountId}")
+    ResponseEntity<CyberGamingDTO> getByAccountId(@PathVariable("accountId") Integer accountId);
 
     @ApiOperation(tags = {"Cyber",}, notes = "", value = "Get All Cyber")
     @GetMapping("")

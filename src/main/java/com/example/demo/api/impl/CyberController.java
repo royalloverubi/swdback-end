@@ -48,7 +48,7 @@ public class CyberController implements CyberApi {
     }
 
     @Override
-    public ResponseEntity<CyberGamingDTO> getByAccountId(@RequestParam("id") Integer accountId) {
+    public ResponseEntity<CyberGamingDTO> getByAccountId(@PathVariable("accountId") Integer accountId) {
         CyberGamingDTO cyberGamingDTO = cyberGamingService.getByAccountId(accountId);
         return ResponseEntity.ok(cyberGamingDTO);
     }

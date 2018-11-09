@@ -42,10 +42,6 @@ public interface ServiceRequestApi {
     @PutMapping("/approve/{id}")
     ResponseEntity<Map<String, Boolean>> approveRequest(@PathVariable("id") Integer id);
 
-    @ApiOperation(tags = {"ServiceRequest",}, notes = "", value = "Get List ServiceRequest Need To ApproveByAccountId")
-    @GetMapping("/getListNeedToAproveByAccountId/{accountId}")
-    ResponseEntity<List<ServiceRequestDetailDTO>>getListNeedToAproveByAccountId(@PathVariable("accountId") Integer accountId);
-
     @ApiOperation(tags = {"ServiceRequest",}, notes = "", value = "Get List ServiceRequest Approved By Customer Id")
     @GetMapping("/getListAproved/{customerId}")
     ResponseEntity<List<ServiceRequestDetailDTO>>getListAproved(@PathVariable("customerId") Integer customerId);
@@ -59,7 +55,7 @@ public interface ServiceRequestApi {
     ResponseEntity<Map<String, Boolean>> completeRequest(@PathVariable("id") Integer id);
 
 
-    @ApiOperation(tags = {"ServiceRequest",}, notes = "", value = "Get List ServiceRequest Need To Done By AccountId")
-    @GetMapping("/getListNeedToDoneByAccountId/{accountId}")
-    ResponseEntity<List<ServiceRequestDetailDTO>>getListNeedToDoneByAccountId(@PathVariable("accountId") Integer accountId);
+    @ApiOperation(tags = {"ServiceRequest",}, notes = "", value = "Get List ServiceRequest Need To Done By CyberId")
+    @GetMapping("/getListNeedToDone/{cyberId}")
+    ResponseEntity<List<ServiceRequestDetailDTO>>getListNeedToDone(@PathVariable("cyberId") Integer cyberId);
 }
