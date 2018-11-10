@@ -23,8 +23,11 @@ public class CyberGaming {
     @Column(name = "address")
     private String address;
 
-    @Column(name = "star_average")
-    private Double starAverage;
+    @Column(name = "number_of_star")
+    private Double numberOfStar;
+
+    @Column(name = "number_of_evaluator")
+    private Integer numberOfEvaluator;
 
     @Column(name = "longitude")
     private Double logitude;
@@ -78,12 +81,20 @@ public class CyberGaming {
         this.address = address;
     }
 
-    public Double getStarAverage() {
-        return starAverage;
+    public Double getNumberOfStar() {
+        return numberOfStar;
     }
 
-    public void setStarAverage(Double starAverage) {
-        this.starAverage = starAverage;
+    public void setNumberOfStar(Double numberOfStar) {
+        this.numberOfStar = numberOfStar;
+    }
+
+    public Integer getNumberOfEvaluator() {
+        return numberOfEvaluator;
+    }
+
+    public void setNumberOfEvaluator(Integer numberOfEvaluator) {
+        this.numberOfEvaluator = numberOfEvaluator;
     }
 
     public Double getLogitude() {
