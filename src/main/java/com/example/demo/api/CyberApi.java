@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 @Component
-@RequestMapping("/cyber")
+@RequestMapping("/cybers")
 public interface CyberApi {
 
     @ApiOperation(tags = {"Cyber",}, notes = "", value = "Get Cyber By Id")
