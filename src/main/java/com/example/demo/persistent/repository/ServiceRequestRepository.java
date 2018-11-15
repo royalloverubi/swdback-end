@@ -19,7 +19,7 @@ public interface ServiceRequestRepository extends JpaRepository<ServiceRequest, 
     @Modifying
     void deleteByID(@Param("id") Integer id);
 
-    @Query("SELECT s FROM ServiceRequest s WHERE s.userId = :id ORDER BY s.goingDate DESC ")
+    @Query("SELECT s FROM ServiceRequest s WHERE s.deleted = false AND s.userId = :id ORDER BY s.goingDate DESC ")
     List<ServiceRequest> getByAccountRequestId(@Param("id") Integer id);
 
     @Query("SELECT s FROM ServiceRequest s WHERE s.deleted = false AND s.approved = false AND s.cyberGamingId = :cyberId ORDER BY s.dateRequest DESC ")
@@ -33,10 +33,10 @@ public interface ServiceRequestRepository extends JpaRepository<ServiceRequest, 
     @Modifying
     void completeRequest(@Param("id") Integer id);
 
-    @Query("SELECT s FROM ServiceRequest s WHERE s.userId = :customerId AND s.approved = true AND s.done = false ")
+    @Query("SELECT s FROM ServiceRequest s WHERE s. deleted = false AND s.userId = :customerId AND s.approved = true AND s.done = false ")
     List<ServiceRequest> getListApproved(@Param("customerId") Integer customerId);
 
-    @Query("SELECT s FROM ServiceRequest s WHERE s.userId = :customerId AND s.approved = true AND s.done = true ")
+    @Query("SELECT s FROM ServiceRequest s WHERE s.deleted = false AND s.userId = :customerId AND s.approved = true AND s.done = true ")
     List<ServiceRequest> getListDone(@Param("customerId") Integer customerId);
 
     @Query("SELECT s FROM ServiceRequest s WHERE s.deleted = false AND s.approved = true AND s.done = false AND s.cyberGamingId = :cyberId ORDER BY s.dateRequest DESC")
